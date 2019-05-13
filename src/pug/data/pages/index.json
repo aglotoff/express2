@@ -1,3 +1,9 @@
 {
-    
+    "header": {
+        "banner": {
+            "title": "Top logistics services provider",
+            "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque",
+            "bg": "img/top-banner-bg.jpg"
+        }
+    }
 }

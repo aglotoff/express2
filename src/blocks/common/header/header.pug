@@ -1,0 +1,11 @@
+//-
+    name: header
+    description: Markup for the header block
+    arguments:
+        - {object} data - block data
+        - {object} data.banner - banner data
+
+mixin header(data = {})
+    header.header&attributes(attributes)
+        if data.banner
+            +top-banner(data.banner)

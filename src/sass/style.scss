@@ -5,6 +5,7 @@
 
 // TODO: include third-party styles
 
-@import "../blocks/common/page/page.scss";
+@import "../blocks/common/page/page";
 
-// TODO: include other block styles
+@import "../blocks/common/header/header";
+@import "../blocks/common/top-banner/top-banner";

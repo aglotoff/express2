@@ -1,5 +1,7 @@
+include ../../blocks/common/header/header.pug
+include ../../blocks/common/top-banner/top-banner.pug
 include ../../blocks/common/icon/icon.pug
-//- TODO: include common block templates
+
 
 <!DOCTYPE html>
 html(lang="en")
@@ -14,8 +16,11 @@ html(lang="en")
             title #{data.siteTitle} &#8211; #{data.siteTagline}
 
         link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Raleway:800%7CRoboto")
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css")
         link(rel="stylesheet", href="css/style.css")
     body.page
+        +header(data.header)
+
         block page
 
         block scripts

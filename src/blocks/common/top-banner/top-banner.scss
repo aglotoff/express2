@@ -1,0 +1,115 @@
+/**
+ * Styles for the top banner block.
+ */
+.top-banner {
+    // Selector styles
+    position: relative;
+
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 15px 50px;
+
+    background: {
+        color: $color-dusty-gray;
+        position: center;
+        size: cover;
+    }
+
+    // @media queries
+    @include breakpoint-up(md) {
+        padding-top: 60px;
+        padding-bottom: 80px;
+    }
+
+    // Pseudo-classes and pseudo-elements
+    // TODO: add code
+
+    // Nested selectors
+    // TODO: add code
+
+    // BEM elements
+    &__content {
+        color: $color-white;
+        text-align: center;
+
+        @include breakpoint-up(md) {
+            margin-top: 20px;
+        }
+
+        @include breakpoint-up(lg) {
+            margin-top: 40px;
+        }
+    }
+
+    &__title {
+        font-family: $font-family-title;
+        @include font-size(28px);
+        font-weight: $font-weight-extra-bold;
+        text-transform: uppercase;
+
+        @include breakpoint-up(sm) {
+            @include font-size(32px);
+        }
+
+        @include breakpoint-up(md) {
+            @include font-size(40px);
+        }
+
+        @include breakpoint-up(lg) {
+            @include font-size(48px);
+        }
+
+        &:after {
+            content: "";
+
+            display: block;
+            height: 3px;
+            margin: 12px auto 0;
+            width: 80px;
+
+            background: $color-secondary;
+
+            @include breakpoint-up(md) {
+                width: 120px;
+            }
+        }
+    }
+
+    &__text {
+        margin: 24px auto 0;
+        max-width: 570px;
+
+        line-height: 1.875;
+
+        @include breakpoint-up(md) {
+            margin-top: 48px;
+        }
+    }
+
+    &__scroll {
+        position: absolute;
+
+        bottom: 0;
+        left: 50%;
+
+        color: $color-white;
+        @include font-size(40px);
+
+        transform: translateX(-50%);
+        transition: opacity 0.2s linear;
+
+        @include breakpoint-up(md) {
+            @include font-size(60px);
+        }
+
+        &:focus,
+        &:hover {
+            opacity: 0.4;
+        }
+    }
+
+    // Bem modifiers
+    // TODO: add code
+}

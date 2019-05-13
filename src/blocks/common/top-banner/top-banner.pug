@@ -1,0 +1,24 @@
+//-
+    name: top-banner
+    description: Markup for the top banner block
+    arguments:
+        - {object} data - block data
+        - {string} data.title - banner title
+        - {string} data.text - banner text
+        - {string} data.bg - backgroung image
+
+mixin top-banner(data = {})
+    .top-banner(
+        style=`background-image: url("${data.bg}");`
+    )&attributes(attributes)
+        .top-banner__content
+            h1.top-banner__title= data.title
+            p.top-banner__text= data.text
+        // .top-banner__content
+
+        a(
+            href="#header-top"
+            aria-label="Skip to site content"
+        ).top-banner__scroll
+            i.zmdi.zmdi-chevron-down(aria-hidden="true")
+    // .top-banner

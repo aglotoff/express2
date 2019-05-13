@@ -54,5 +54,12 @@ $font-weight-extra-bold: 800;
 $line-height-base: 1.5;
 
 // Color palette
-$color-black: #000;
-$color-white: #fff;
+$color-black: #000000;
+$color-chathams-blue: #154270;
+$color-dusty-gray: #999999;
+$color-lightning-yellow: #fcc51d;
+$color-white: #ffffff;
+
+// Semantic colors
+$color-primary: $color-chathams-blue;
+$color-secondary: $color-lightning-yellow;
