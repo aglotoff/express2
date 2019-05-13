@@ -1,0 +1,67 @@
+/**
+ * Styles for the top-contacts block.
+ */
+.top-contacts {
+    // Selector styles
+    display: flex;
+
+    // @media queries
+    // TODO: add code
+
+    // Pseudo-classes and pseudo-elements
+    // TODO: add code
+
+    // Nested selectors
+    // TODO: add code
+
+    // BEM elements
+    &__item {
+        align-items: center;
+        display: flex;
+
+        &:after {
+            content: "";
+
+            display: block;
+            height: 36px;
+            margin-left: 30px;
+            width: 1px;
+
+            background: $color-alto;
+        }
+
+        &:not(:first-child) {
+            margin-left: 30px;
+        }
+    }
+
+    &__icon {
+        color: $color-regular-blue;
+        @include font-size(40px);
+        line-height: 1;
+    }
+
+    &__info {
+        margin-left: 12px;
+
+        font-family: $font-family-title;
+        @include font-size(14px);
+    }
+
+    &__title {
+        display: block;
+
+        font-weight: $font-weight-extra-bold;
+        text-transform: uppercase;
+    }
+
+    &__value {
+        display: block;
+
+        color: $color-gray;
+        font-weight: $font-weight-medium;
+    }
+
+    // Bem modifiers
+    // TODO: add code
+}

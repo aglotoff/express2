@@ -1,0 +1,27 @@
+//-
+    name: top-contacts
+    description: Markup for the top-contacts block
+
+mixin top-contacts()
+    ul.top-contacts&attributes(attributes)
+        li.top-contacts__item
+            .top-contacts__icon(aria-hidden="true")
+                i.zmdi.zmdi-phone
+            .top-contacts__info
+                span.top-contacts__title Call us anytime
+                span.top-contacts__value 012-345-789
+
+        li.top-contacts__item
+            .top-contacts__icon(aria-hidden="true")
+                i.zmdi.zmdi-time
+            .top-contacts__info
+                span.top-contacts__title Opening time
+                span.top-contacts__value 7:00 - 18:30
+
+        li.top-contacts__item
+            .top-contacts__icon(aria-hidden="true")
+                i.zmdi.zmdi-email
+            .top-contacts__info
+                span.top-contacts__title Contact us
+                span.top-contacts__value contact@express.com
+    // .top-contacts 

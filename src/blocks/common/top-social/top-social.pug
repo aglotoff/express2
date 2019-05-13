@@ -1,0 +1,26 @@
+//-
+    name: top-social
+    description: Markup for the top social icons block
+
+mixin top-social(data = {})
+    ul.top-social&attributes(attributes)
+        li.top-social__item
+            a(
+                href="javascript:void(0);"
+                aria-label="Follow on Facebook"
+            ).top-social__link
+                i.zmdi.zmdi-facebook(aria-hidden="true")
+        li.top-social__item
+            a(
+                href="javascript:void(0);"
+                aria-label="Follow on Twitter"
+            ).top-social__link
+                i.zmdi.zmdi-twitter(aria-hidden="true")
+        li.top-social__item
+            a(
+                href="javascript:void(0);"
+                aria-label="Follow on LinkedIn"
+            ).top-social__link
+                i.zmdi.zmdi-linkedin(aria-hidden="true")
+            
+    // .top-social 

@@ -4,8 +4,17 @@
     arguments:
         - {object} data - block data
         - {object} data.banner - banner data
+        - {object} data.logo - logo data
 
 mixin header(data = {})
     header.header&attributes(attributes)
         if data.banner
             +top-banner(data.banner)
+
+        .header__top
+            .header__top-inner.page__container
+                +logo(data.logo).header__logo
+                +top-contacts().header__contacts
+                +top-social().header__social
+            // .header__top-inner 
+        // .header__top 

@@ -1,7 +1,9 @@
 include ../../blocks/common/header/header.pug
 include ../../blocks/common/top-banner/top-banner.pug
+include ../../blocks/common/logo/logo.pug
+include ../../blocks/common/top-contacts/top-contacts.pug
+include ../../blocks/common/top-social/top-social.pug
 include ../../blocks/common/icon/icon.pug
-
 
 <!DOCTYPE html>
 html(lang="en")
@@ -15,7 +17,7 @@ html(lang="en")
         else
             title #{data.siteTitle} &#8211; #{data.siteTagline}
 
-        link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Raleway:800%7CRoboto")
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Raleway:500,800%7CRoboto")
         link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css")
         link(rel="stylesheet", href="css/style.css")
     body.page
