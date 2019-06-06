@@ -1,0 +1,26 @@
+//-
+    name: main menu
+    description: Markup for the main menu block
+    arguments:
+        - {object} data - block data
+
+mixin main-menu(data = [])
+    nav.main-menu&attributes(attributes)
+        ul.main-menu__list
+            each item, i in data
+                li.main-menu__item
+                    if item.submenu
+                        a(
+                            href=item.url
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                        ).main-menu__link= item.title
+                        .main-menu__submenu
+                            ul.main-menu__sub-list
+                                each subitem in item.submenu
+                                    li.main-menu__sub-item
+                                        a(
+                                            href=subitem.url
+                                        ).main-menu__sub-link= subitem.title
+                    else
+                        a(href=item.url).main-menu__link= item.title

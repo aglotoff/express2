@@ -2,7 +2,7 @@
  * @file Implementation of the page block
  */
 
-// TODO: imports other blocks
+import MainMenu from '../main-menu/main-menu';
 
 // -------------------------- BEGIN MODULE VARIABLES --------------------------
 const RESIZE_INTERVAL = 200;    // Resize event debouncing interval
@@ -65,12 +65,10 @@ function throttleWindowScroll() {
  * @return true
  */
 function initBlock() {
-    $(window).on({
-        resize: debounceWindowResize,
-        scroll: throttleWindowScroll,
-    });
+    window.addEventListener('resize', debounceWindowResize);
+    window.addEventListener('scroll', throttleWindowScroll);
 
-    // TODO: initialize other blocks
+    MainMenu.initBlock();
 
     // Process the initial window size and scroll position
     handleWindowResize();

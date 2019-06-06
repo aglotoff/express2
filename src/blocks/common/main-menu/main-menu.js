@@ -1,10 +1,10 @@
 /**
- * @file Implementation of the {{block}} block
+ * @file Implementation of the main menu block
  * @author Andrey Glotov
  */
 
 // -------------------------- BEGIN MODULE VARIABLES --------------------------
-// TODO: add code here
+
 // --------------------------- END MODULE VARIABLES ---------------------------
 
 // -------------------------- BEGIN UTILITY FUNCTIONS -------------------------
@@ -21,11 +21,10 @@
 
 // --------------------------- BEGIN PUBLIC METHODS ---------------------------
 /**
- * Initialize the {{block}} block.
+ * Initialize the main menu block.
  * @return true if the block is present on the page, false otherwise
  */
 function initBlock() {
-    // TODO: add code here
     return true;
 }
 // ---------------------------- END PUBLIC METHODS ----------------------------
