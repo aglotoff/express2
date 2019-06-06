@@ -5,10 +5,12 @@
     // Selector styles
     display: flex;
 
-    @include font-size(24px);
+    @include font-size(22px);
 
     // @media queries
-    // TODO: add code
+    @include breakpoint-up(xl) {
+        @include font-size(24px);
+    }
 
     // Pseudo-classes and pseudo-elements
     // TODO: add code
