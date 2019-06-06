@@ -1,0 +1,15 @@
+//-
+    name: btn
+    description: Markup for the btn block
+    arguments:
+        - {object} data - block data
+
+mixin btn(data = {})
+    if data.url
+        a(href=data.url).btn&attributes(attributes)
+            if block
+                block
+    else
+        button.btn&attributes(attributes)
+            if block
+                block

@@ -38,6 +38,15 @@
         background: $color-chathams-blue;
     }
 
+    &__navbar-inner {
+        align-items: center;
+        display: flex;
+    }
+
+    &__order-btn {
+        margin-left: auto;
+    }
+
     // Bem modifiers
     // TODO: add code
 }

@@ -1,0 +1,41 @@
+/**
+ * Styles for the button block.
+ */
+.btn {
+    // Selector styles
+    display: inline-block;
+    padding: 10px 22px;
+
+    color: $color-white;
+    font-family: $font-family-title;
+    @include font-size(14px);
+    font-weight: $font-weight-extra-bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    background: $color-secondary;
+
+    transition: background-color 0.2s linear;
+
+    // @media queries
+    // TODO: add code
+
+    // Pseudo-classes and pseudo-elements
+    &:hover {
+        background: darken($color-secondary, 15%);
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 4px rgba($color-secondary, 0.5);
+    }
+
+    // Nested selectors
+    // TODO: add code
+
+    // BEM elements
+    // TODO: add code
+
+    // Bem modifiers
+    // TODO: add code
+}
