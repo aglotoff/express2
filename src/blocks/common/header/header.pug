@@ -22,6 +22,7 @@ mixin header(data = {})
         .header__navbar
             .header__navbar-inner.page__container
                 +main-menu(data.mainMenu)
-
+                +header-search().header__search
+                +lang-menu().header__lang-menu
                 +btn({ url: 'javascript:void(0);' }).header__order-btn
                     | Request a Rate

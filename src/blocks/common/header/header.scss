@@ -43,6 +43,15 @@
         display: flex;
     }
 
+    &__search {
+        align-self: stretch;
+        margin-left: 5px;
+    }
+
+    &__lang-menu {
+        align-self: stretch;
+    }
+
     &__order-btn {
         margin-left: auto;
     }
