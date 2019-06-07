@@ -60,6 +60,8 @@ function scrollTo(target, duration) {
 // --------------------------- BEGIN EVENT HANDLERS ---------------------------
 
 function handleScrollClick(e) {
+    e.preventDefault();
+
     const targetHref = e.currentTarget.getAttribute('href');
     const targetId = targetHref.substr(1);
     const targetElem = document.getElementById(targetId);
