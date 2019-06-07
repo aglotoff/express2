@@ -1,26 +1,35 @@
 //-
     name: top-social
     description: Markup for the top social icons block
+    arguments:
+        - {object} data - block data
+        - {string} data.facebook - Facebook account URL
+        - {string} data.twitter - Twitter account URL
+        - {string} data.linkedin - LinkedIn account URL
 
 mixin top-social(data = {})
     ul.top-social&attributes(attributes)
-        li.top-social__item
-            a(
-                href="javascript:void(0);"
-                aria-label="Follow on Facebook"
-            ).top-social__link
-                i.zmdi.zmdi-facebook(aria-hidden="true")
-        li.top-social__item
-            a(
-                href="javascript:void(0);"
-                aria-label="Follow on Twitter"
-            ).top-social__link
-                i.zmdi.zmdi-twitter(aria-hidden="true")
-        li.top-social__item
-            a(
-                href="javascript:void(0);"
-                aria-label="Follow on LinkedIn"
-            ).top-social__link
-                i.zmdi.zmdi-linkedin(aria-hidden="true")
-            
+        if data.facebook
+            li.top-social__item
+                a(
+                    href=data.facebook
+                    aria-label="Follow on Facebook"
+                ).top-social__link
+                    i.zmdi.zmdi-facebook(aria-hidden="true")
+
+        if data.twitter
+            li.top-social__item
+                a(
+                    href=data.twitter
+                    aria-label="Follow on Twitter"
+                ).top-social__link
+                    i.zmdi.zmdi-twitter(aria-hidden="true")
+
+        if data.linkedin
+            li.top-social__item
+                a(
+                    href=data.linkedin
+                    aria-label="Follow on LinkedIn"
+                ).top-social__link
+                    i.zmdi.zmdi-linkedin(aria-hidden="true")
     // .top-social 

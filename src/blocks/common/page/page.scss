@@ -7,8 +7,6 @@
     font-weight: $font-weight-regular;
     line-height: $line-height-base;
 
-    // other general styles go here
-
     &__container {
         @include container();
     }

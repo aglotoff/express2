@@ -1,17 +1,16 @@
 //-
     name: header-search
-    description: Markup for the header-search block
-    arguments:
-        - {object} data - block data
+    description: Markup for the header search block
 
-mixin header-search(data = {})
+mixin header-search()
     .header-search&attributes(attributes)
         button(
             aria-haspopup="true"
             aria-expanded="false"
             aria-controls="header-search"
+            aria-label="Search"
         ).header-search__trigger
-            i.zmdi.zmdi-search
+            i.zmdi.zmdi-search(aria-hidden="true")
 
         .header-search__drop#header-search
             form(method="GET" action="").header-search__form
@@ -20,3 +19,5 @@ mixin header-search(data = {})
                     name="s"
                     placeholder="Enter your keyword..."
                 )
+        // .header-search__drop 
+    // .header-search 

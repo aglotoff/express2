@@ -5,6 +5,10 @@
         - {object} data - block data
         - {object} data.banner - banner data
         - {object} data.logo - logo data
+        - {object} data.contacts - contacts data
+        - {object} data.social - social links data
+        - {array} mainMenu - main menu data
+        - {array} langMenu - language menu
 
 mixin header(data = {})
     header.header&attributes(attributes)
@@ -13,9 +17,13 @@ mixin header(data = {})
 
         .header__top#header-top
             .header__top-inner.page__container
-                +logo(data.logo).header__logo
-                +top-contacts().header__contacts
-                +top-social().header__social
+                +logo({
+                    img: data.logo.img,
+                    alt: data.logo.alt,
+                    isHeading: data.isHomepage && !data.banner,
+                }).header__logo
+                +top-contacts(data.contacts).header__contacts
+                +top-social(data.social).header__social
             // .header__top-inner 
         // .header__top 
 
@@ -23,6 +31,8 @@ mixin header(data = {})
             .header__navbar-inner.page__container
                 +main-menu(data.mainMenu)
                 +header-search().header__search
-                +lang-menu().header__lang-menu
+                +lang-menu(data.langMenu).header__lang-menu
                 +btn({ url: 'javascript:void(0);' }).header__order-btn
                     | Request a Rate
+            // .header__navbar 
+        // .header__navbar 

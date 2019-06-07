@@ -10,7 +10,7 @@ include ../../blocks/common/input/input.pug
 include ../../blocks/common/lang-menu/lang-menu.pug
 include ../../blocks/common/btn/btn.pug
 
-<!DOCTYPE html>
+doctype html
 html(lang="en")
     head
         meta(charset="UTF-8")
@@ -26,7 +26,15 @@ html(lang="en")
         link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css")
         link(rel="stylesheet", href="css/style.css")
     body.page
-        +header(data.header)
+        +header({
+            banner: data.header.banner,
+            logo: data.logo,
+            contacts: data.contacts,
+            social: data.social,
+            mainMenu: data.mainMenu,
+            langMenu: data.langMenu,
+            isHomepage: data.isHomepage,
+        })
 
         block page
 

@@ -1,8 +1,9 @@
 //-
     name: btn
-    description: Markup for the btn block
+    description: Markup for the button block
     arguments:
         - {object} data - block data
+        - {string} data.url - target URL (optional)
 
 mixin btn(data = {})
     if data.url

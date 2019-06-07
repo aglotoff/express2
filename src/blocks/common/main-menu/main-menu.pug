@@ -1,8 +1,13 @@
 //-
-    name: main menu
+    name: main-menu
     description: Markup for the main menu block
     arguments:
-        - {object} data - block data
+        - {array} data - block data
+        - {string} data[].title - item title
+        - {string} data[].url - item URL
+        - {array} data[].submenu - submenu
+        - {string} data[].submenu[].title - submenu item title
+        - {string} data[].submenu[].url - submenu item URL
 
 mixin main-menu(data = [])
     nav.main-menu&attributes(attributes)
@@ -22,5 +27,8 @@ mixin main-menu(data = [])
                                         a(
                                             href=subitem.url
                                         ).main-menu__sub-link= subitem.title
+                        // .main-menu__submenu 
                     else
                         a(href=item.url).main-menu__link= item.title
+                // .main-menu__item 
+    // .main-menu 

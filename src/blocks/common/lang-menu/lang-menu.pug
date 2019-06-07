@@ -1,26 +1,27 @@
 //-
     name: lang-menu
-    description: Markup for the lang-menu block
+    description: Markup for the language menu block
     arguments:
-        - {object} data - block data
+        - {array} data - block data
+        - {string} data[].lang - item lang (optional)
+        - {string} data[].text - item text
+        - {string} data[].url - item URL
 
-mixin lang-menu(data = {})
+mixin lang-menu(data = [])
     .lang-menu&attributes(attributes)
         button(
             aria-haspopup="true"
             aria-expanded="fase"
             aria-controls="lang-menu"
+            aria-label="Choose a different language"
         ).lang-menu__trigger
-            i.zmdi.zmdi-globe-alt
+            i.zmdi.zmdi-globe-alt(aria-hidden="true")
 
         .lang-menu__drop
             ul.lang-menu__list
-                li.lang-menu__item
-                    a(href="javascript:void(0);").lang-menu__link
-                        | English (EN)
-                li.lang-menu__item
-                    a(href="javascript:void(0);" lang="de").lang-menu__link
-                        | Deutsch (DE)
-                li.lang-menu__item
-                    a(href="javascript:void(0);" lang="fr").lang-menu__link
-                        | Français (FR)
+                each item in data
+                    li.lang-menu__item
+                        a(href=item.url lang=item.lang).lang-menu__link
+                            = item.text
+        // .lang-menu__drop 
+    // .lang-menu 

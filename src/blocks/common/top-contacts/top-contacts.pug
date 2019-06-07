@@ -1,27 +1,36 @@
 //-
     name: top-contacts
-    description: Markup for the top-contacts block
+    description: Markup for the top contacts block
+    arguments:
+        - {object} data - block data
+        - {string} data.phone - phone number
+        - {string} data.openingTime - opening hours
+        - {string} data.email - email
 
-mixin top-contacts()
+mixin top-contacts(data = {})
     ul.top-contacts&attributes(attributes)
-        li.top-contacts__item
-            .top-contacts__icon(aria-hidden="true")
-                i.zmdi.zmdi-phone
-            .top-contacts__info
-                span.top-contacts__title Call us anytime
-                span.top-contacts__value 012-345-789
-
-        li.top-contacts__item
-            .top-contacts__icon(aria-hidden="true")
-                i.zmdi.zmdi-time
-            .top-contacts__info
-                span.top-contacts__title Opening time
-                span.top-contacts__value 7:00 - 18:30
-
-        li.top-contacts__item
-            .top-contacts__icon(aria-hidden="true")
-                i.zmdi.zmdi-email
-            .top-contacts__info
-                span.top-contacts__title Contact us
-                span.top-contacts__value contact@express.com
+        if data.phone
+            li.top-contacts__item
+                .top-contacts__icon(aria-hidden="true")
+                    i.zmdi.zmdi-phone
+                .top-contacts__info
+                    span.top-contacts__title Call us anytime
+                    span.top-contacts__value= data.phone
+            // .top-contacts__item 
+        if data.openingTime
+            li.top-contacts__item
+                .top-contacts__icon(aria-hidden="true")
+                    i.zmdi.zmdi-time
+                .top-contacts__info
+                    span.top-contacts__title Opening time
+                    span.top-contacts__value= data.openingTime
+            // .top-contacts__item 
+        if data.email
+            li.top-contacts__item
+                .top-contacts__icon(aria-hidden="true")
+                    i.zmdi.zmdi-email
+                .top-contacts__info
+                    span.top-contacts__title Contact us
+                    span.top-contacts__value= data.email
+            // .top-contacts__item 
     // .top-contacts 
