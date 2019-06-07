@@ -3,6 +3,7 @@
  */
 
 import MainMenu from '../main-menu/main-menu';
+import TopBanner from '../top-banner/top-banner';
 
 // -------------------------- BEGIN MODULE VARIABLES --------------------------
 const RESIZE_INTERVAL = 200;    // Resize event debouncing interval
@@ -69,6 +70,7 @@ function initBlock() {
     window.addEventListener('scroll', throttleWindowScroll);
 
     MainMenu.initBlock();
+    TopBanner.initBlock();
 
     // Process the initial window size and scroll position
     handleWindowResize();
