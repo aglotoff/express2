@@ -3,10 +3,12 @@
  */
 .header {
     // Selector styles
-    // TODO: add code
+    box-shadow: 0 2px 5px rgba($color-black, 0.1);
 
     // @media queries
-    // TODO: add code
+    @include breakpoint-up(lg) {
+        box-shadow: none;
+    }
 
     // Pseudo-classes and pseudo-elements
     // TODO: add code
@@ -18,13 +20,28 @@
     &__top-inner {
         align-items: center;
         display: flex;
-        padding-bottom: 40px;
-        padding-top: 40px;
+        padding-bottom: 24px;
+        padding-top: 24px;
+
+        @include breakpoint-up(lg) {
+            padding-bottom: 36px;
+            padding-top: 36px;
+        }
+
+        @include breakpoint-up(xl) {
+            padding-bottom: 40px;
+            padding-top: 40px;
+        }
     }
 
     &__logo {
         flex: 1 1;
         margin-right: 30px;
+        max-width: 200px;
+
+        @include breakpoint-up(lg) {
+            max-width: 260px;
+        }
     }
 
     &__contacts {
@@ -35,26 +52,154 @@
         margin-left: 30px;
     }
 
-    &__navbar {
+    &__navbar-toggle {
+        margin-left: auto;
+        padding: 2px;
+
+        @include font-size(24px);
+
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+
+        @include breakpoint-up(lg) {
+            display: none;
+        }
+    }
+
+    &__navbar-dimmer {
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 200;
+
+        background: rgba($color-black, 0.5);
+        opacity: 0;
+
+        transition: opacity 0.2s ease-out,
+                    visibility 0s step-start 0.2s;
+        visibility: hidden;
+
+        @include breakpoint-up(lg) {
+            display: none;
+        }
+
+        .header__navbar_visible & {
+            opacity: 1;
+
+            transition-delay: 0s;
+            visibility: visible;
+
+            @include breakpoint-up(lg) {
+                transform: none;
+            }
+        }
+    }
+
+    &__navbar-container {
+        bottom: 0;
+        left: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 300;
+
+        width: 320px;
+
         background: $color-chathams-blue;
+
+        overflow-y: auto;
+        transition: transform 0.2s ease-out,
+                    visibility 0s step-start 0.2s;
+        visibility: hidden;
+
+        @include breakpoint-up(lg) {
+            position: static;
+
+            width: auto;
+
+            overflow: visible;
+            transition: none;
+            visibility: visible;
+        }
+
+        .header__navbar_visible & {
+            transform: translateX(-320px);
+            transition-delay: 0s;
+            visibility: visible;
+
+            @include breakpoint-up(lg) {
+                transform: none;
+            }
+        }
     }
 
     &__navbar-inner {
-        align-items: center;
-        display: flex;
+        padding: 48px 6px 6px;
+
+        @include breakpoint-up(lg) {
+            align-items: center;
+            display: flex;
+            padding: 0;
+        }
+    }
+
+    &__navbar-close {
+        left: 18px;
+        position: absolute;
+        top: 6px;
+
+        margin-bottom: 10px;
+        padding: 0;
+
+        color: $color-white;
+        @include font-size(24px);
+
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+
+        transition: color 0.2s linear;
+
+        @include breakpoint-up(lg) {
+            display: none;
+        }
+
+        &:hover,
+        &:focus {
+            color: $color-secondary;
+        }
     }
 
     &__search {
-        align-self: stretch;
-        margin-left: 5px;
+        margin-top: 16px;
+
+        @include breakpoint-up(lg) {
+            align-self: stretch;
+            margin-left: 5px;
+            margin-top: 0;
+        }
     }
 
     &__lang-menu {
-        align-self: stretch;
+        display: none;
+
+        @include breakpoint-up(lg) {
+            align-self: stretch;
+            display: block;
+        }
     }
 
     &__order-btn {
-        margin-left: auto;
+        margin-top: 24px;
+        width: 100%;
+
+        @include breakpoint-up(lg) {
+            margin-left: auto;
+            margin-top: 0;
+            width: auto;
+        }
     }
 
     // Bem modifiers

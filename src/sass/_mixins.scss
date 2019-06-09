@@ -59,16 +59,16 @@
     padding: 0 $gutter;
 
     @include breakpoint-up(md) {
-        width: $container-md;
         margin: 0 auto;
+        max-width: $container-md;
     }
 
     @include breakpoint-up(lg) {
-        width: $container-lg;
+        max-width: $container-lg;
     }
 
     @include breakpoint-up(xl) {
-        width: $container-xl;
+        max-width: $container-xl;
     }
 }
 

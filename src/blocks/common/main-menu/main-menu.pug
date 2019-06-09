@@ -20,6 +20,8 @@ mixin main-menu(data = [])
                             aria-haspopup="true"
                             aria-expanded="false"
                         ).main-menu__link= item.title
+                            span.main-menu__arrow(aria-hidden="true")
+                                i.zmdi.zmdi-chevron-down
                         .main-menu__submenu
                             ul.main-menu__sub-list
                                 each subitem in item.submenu

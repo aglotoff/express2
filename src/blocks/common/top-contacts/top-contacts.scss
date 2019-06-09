@@ -3,10 +3,12 @@
  */
 .top-contacts {
     // Selector styles
-    display: flex;
+    display: none;
 
     // @media queries
-    // TODO: add code
+    @include breakpoint-up(lg) {
+        display: flex;
+    }
 
     // Pseudo-classes and pseudo-elements
     // TODO: add code

@@ -3,11 +3,15 @@
  */
 .top-social {
     // Selector styles
-    display: flex;
+    display: none;
 
     @include font-size(22px);
 
     // @media queries
+    @include breakpoint-up(lg) {
+        display: flex;
+    }
+
     @include breakpoint-up(xl) {
         @include font-size(24px);
     }

@@ -24,15 +24,28 @@ mixin header(data = {})
                 }).header__logo
                 +top-contacts(data.contacts).header__contacts
                 +top-social(data.social).header__social
+                button(
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    aria-label="Open menu"
+                    aria-controls="navbar"
+                ).header__navbar-toggle
+                    i.zmdi.zmdi-menu(aria-hidden="true")
             // .header__top-inner 
         // .header__top 
 
-        .header__navbar
-            .header__navbar-inner.page__container
-                +main-menu(data.mainMenu)
-                +header-search().header__search
-                +lang-menu(data.langMenu).header__lang-menu
-                +btn({ url: 'javascript:void(0);' }).header__order-btn
-                    | Request a Rate
-            // .header__navbar 
+        .header__navbar#navbar
+            .header__navbar-dimmer
+            .header__navbar-container
+                .page__container
+                    .header__navbar-inner
+                        +main-menu(data.mainMenu)
+                        +header-search().header__search
+                        +lang-menu(data.langMenu).header__lang-menu
+                        +btn({ url: 'javascript:void(0);' }).header__order-btn
+                            | Request a Rate
+                        button.header__navbar-close(aria-label="Close menu")
+                            i.zmdi.zmdi-close-circle-o(aria-hidden="true")
+                // .header__navbar 
+            // .page__container 
         // .header__navbar 

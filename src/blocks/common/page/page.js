@@ -2,6 +2,7 @@
  * @file Implementation of the page block
  */
 
+import Header from '../header/header';
 import MainMenu from '../main-menu/main-menu';
 import TopBanner from '../top-banner/top-banner';
 
@@ -69,6 +70,7 @@ function initBlock() {
     window.addEventListener('resize', debounceWindowResize);
     window.addEventListener('scroll', throttleWindowScroll);
 
+    Header.initBlock();
     MainMenu.initBlock();
     TopBanner.initBlock();
 

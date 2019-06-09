@@ -15,24 +15,50 @@
 
     // BEM elements
     &__list {
-        display: flex;
+        @include breakpoint-up(lg) {
+            display: flex;
+        }
     }
 
     &__item {
         position: relative;
+
+        &:not(:last-child) {   
+            &:after {
+                @include breakpoint-down(md) {
+                    content: "";
+        
+                    left: 0;
+                    position: absolute;
+                    right: 0;
+        
+                    display: block;
+                    height: 1px;
+        
+                    background: rgba($color-white, 0.15);
+                }
+            }
+        }
     }
 
     &__link {
         display: block;
-        padding: 23px 22px;
+        padding: 14px 0;
 
         color: $color-white;
         font-family: $font-family-title;
+        @include font-size(14px);
         font-weight: $font-weight-extra-bold;
         text-decoration: none;
         text-transform: uppercase;
 
         transition: color 0.2s linear;
+
+        @include breakpoint-up(lg) {
+            padding: 23px 22px;
+
+            @include font-size(16px);
+        }
 
         &:hover,
         &:focus {
@@ -40,59 +66,88 @@
         }
 
         .main-menu__item:first-child > & {
-            padding-left: 0;
+            @include breakpoint-up(lg) {
+                padding-left: 0;
+            }
+        }
+    }
+
+    &__arrow {
+        right: 0;
+        position: absolute;
+        top: 8px;
+
+        @include font-size(20px);
+
+        @include breakpoint-up(lg) {
+            display: none;
         }
     }
 
     &__submenu {
-        left: 0;
-        position: absolute;
-        top: 100%;
+        display: none;
+        padding-bottom: 10px;
 
-        min-width: 270px;
-        padding-top: 5px;
+        @include breakpoint-up(lg) {
+            left: 0;
+            position: absolute;
+            top: 100%;
 
-        opacity: 0;
-        visibility: hidden;
+            display: block;
+            min-width: 270px;
+            padding-bottom: 0;
+            padding-top: 5px;
 
-        transition: opacity 0.2s ease-out,
-                    visibility 0.2s step-start 0.2s;
+            opacity: 0;
+            visibility: hidden;
+
+            transition: opacity 0.2s ease-out,
+                        visibility 0.2s step-start 0.2s;
+        }
 
         &_expanded,
         .main-menu__item:hover > & {
-            opacity: 1;
+            @include breakpoint-up(lg) {
+                opacity: 1;
 
-            transition-delay: 0s;
-            visibility: visible;
+                transition-delay: 0s;
+                visibility: visible;
+            }
         }
     }
 
     &__sub-list {
-        padding: 10px 0;
+        padding-left: 20px;
 
-        background: $color-chathams-blue;
+        @include breakpoint-up(lg) {
+            padding: 10px 0;
+
+            background: $color-chathams-blue;
+        }
     }
 
     &__sub-item:not(:last-child) {
-        position: relative;
+        @include breakpoint-up(lg) {
+            position: relative;
 
-        &:after {
-            content: "";
+            &:after {
+                content: "";
 
-            left: 30px;
-            position: absolute;
-            right: 30px;
+                left: 30px;
+                position: absolute;
+                right: 30px;
 
-            display: block;
-            height: 1px;
+                display: block;
+                height: 1px;
 
-            background: rgba($color-white, 0.15);
+                background: rgba($color-white, 0.15);
+            }
         }
     }
 
     &__sub-link {
         display: block;
-        padding: 16px 30px;
+        padding: 10px 0;
 
         color: $color-white;
         font-family: $font-family-title;
@@ -103,6 +158,10 @@
         white-space: nowrap;
 
         transition: color 0.2s linear;
+
+        @include breakpoint-up(lg) {
+            padding: 16px 30px;
+        }
 
         &:hover,
         &:focus {
