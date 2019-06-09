@@ -9,13 +9,14 @@
         - {object} data.social - social links data
         - {array} data.mainMenu - main menu data
         - {array} data.langMenu - language menu
+        - {boolean} data.isHomepage - is this a home page
 
 mixin header(data = {})
     header.header&attributes(attributes)
         if data.banner
             +top-banner(data.banner)
 
-        .header__top#header-top
+        .header__top#header-top(tabindex="-1")
             .header__top-inner.page__container
                 +logo({
                     img: data.logo.img,

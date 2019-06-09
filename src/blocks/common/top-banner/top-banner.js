@@ -11,7 +11,7 @@ const SCROLL_DURATION = 500;
 
 // -------------------------- BEGIN UTILITY FUNCTIONS -------------------------
 
-function scrollTo(target, duration) {
+function scrollTo(target, duration, cb) {
     const startOffset = window.pageYOffset;
 
     const documentHeight = Math.max(
@@ -44,7 +44,11 @@ function scrollTo(target, duration) {
             
             requestAnimationFrame(step);
         } else {
+
             window.scrollTo({ top: targetOffset });
+            if (cb) {
+                cb();
+            }
         }
     }
 
@@ -66,7 +70,9 @@ function handleScrollClick(e) {
     const targetId = targetHref.substr(1);
     const targetElem = document.getElementById(targetId);
 
-    scrollTo(targetElem, SCROLL_DURATION);
+    scrollTo(targetElem, SCROLL_DURATION, () => {
+        targetElem.focus();
+    });
 }
 
 // ---------------------------- END EVENT HANDLERS ----------------------------
