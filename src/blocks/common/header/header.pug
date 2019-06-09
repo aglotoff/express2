@@ -7,8 +7,8 @@
         - {object} data.logo - logo data
         - {object} data.contacts - contacts data
         - {object} data.social - social links data
-        - {array} mainMenu - main menu data
-        - {array} langMenu - language menu
+        - {array} data.mainMenu - main menu data
+        - {array} data.langMenu - language menu
 
 mixin header(data = {})
     header.header&attributes(attributes)
@@ -34,18 +34,7 @@ mixin header(data = {})
             // .header__top-inner 
         // .header__top 
 
-        .header__navbar#navbar
-            .header__navbar-dimmer
-            .header__navbar-container
-                .page__container
-                    .header__navbar-inner
-                        +main-menu(data.mainMenu)
-                        +header-search().header__search
-                        +lang-menu(data.langMenu).header__lang-menu
-                        +btn({ url: 'javascript:void(0);' }).header__order-btn
-                            | Request a Rate
-                        button.header__navbar-close(aria-label="Close menu")
-                            i.zmdi.zmdi-close-circle-o(aria-hidden="true")
-                // .header__navbar 
-            // .page__container 
-        // .header__navbar 
+        +navbar({
+            mainMenu: data.mainMenu,
+            langMenu: data.langMenu
+        })#navbar

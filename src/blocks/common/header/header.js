@@ -3,11 +3,11 @@
  * @author Andrey Glotov
  */
 
-/* global focusTrap */
+import Navbar from '../navbar/navbar';
 
 // -------------------------- BEGIN MODULE VARIABLES --------------------------
-const elements = {};
-const state = {};
+const DESKTOP_BREAKPOINT = 992;
+let isDesktop = false;
 // --------------------------- END MODULE VARIABLES ---------------------------
 
 // -------------------------- BEGIN UTILITY FUNCTIONS -------------------------
@@ -15,23 +15,15 @@ const state = {};
 // --------------------------- END UTILITY FUNCTIONS --------------------------
 
 // ----------------------------- BEGIN DOM METHODS ----------------------------
-function showMobileNavbar() {
-    elements.navbar.classList.add('header__navbar_visible');
-    state.trap.activate();
-}
-
-function hideMobileNavbar() {
-    elements.navbar.classList.remove('header__navbar_visible');
-}
+// TODO: add code here
 // ------------------------------ END DOM METHODS -----------------------------
 
 // --------------------------- BEGIN EVENT HANDLERS ---------------------------
+/**
+ * Handle a click event on the navbar toggle button
+ */
 function handleNavbarToggleClick() {
-    showMobileNavbar();
-}
-
-function handleNavbarCloseClick() {
-    state.trap.deactivate();
+    Navbar.show();
 }
 // ---------------------------- END EVENT HANDLERS ----------------------------
 
@@ -42,29 +34,32 @@ function handleNavbarCloseClick() {
  */
 function initBlock() {
     const header = document.querySelector('.header');
-    if (header == null) {
-        return false;
-    }
-
-    const navbar = header.querySelector('.header__navbar');
     const navbarToggle = header.querySelector('.header__navbar-toggle');
-    const navbarClose = navbar.querySelector('.header__navbar-close');
 
-    elements.navbar = navbar;
-
-    state.trap = focusTrap(navbar, {
-        clickOutsideDeactivates: true,
-        escapeDeactivates: true,
-        onDeactivate: hideMobileNavbar,
-    });
+    Navbar.initBlock();
 
     navbarToggle.addEventListener('click', handleNavbarToggleClick);
-    navbarClose.addEventListener('click', handleNavbarCloseClick);
 
     return true;
+}
+
+/**
+ * Handle the window resize event
+ */
+function handleResize() {
+    // Switch between drilldown submenus on mobile and dropdown submenus on
+    // desktop
+    if (isDesktop && (window.innerWidth < DESKTOP_BREAKPOINT)) {
+        isDesktop = false;
+    } else if (!isDesktop && (window.innerWidth >= DESKTOP_BREAKPOINT)) {
+        isDesktop = true;
+
+        Navbar.hide();
+    }
 }
 // ---------------------------- END PUBLIC METHODS ----------------------------
 
 export default {
     initBlock,
+    handleResize,
 };

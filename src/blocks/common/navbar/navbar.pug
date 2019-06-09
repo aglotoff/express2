@@ -1,0 +1,25 @@
+//-
+    name: navbar
+    description: Markup for the navbar block
+    arguments:
+        - {object} data - block data
+        - {array} data.mainMenu - main menu data
+        - {array} data.langMenu - language menu
+
+mixin navbar(data = {})
+    .navbar&attributes(attributes)
+        .navbar__dimmer
+        .navbar__container
+            .page__container
+                .navbar__inner
+                    +main-menu(data.mainMenu).navbar__menu
+                    +header-search().navbar__search
+                    +lang-menu(data.langMenu).navbar__lang-menu
+                    +btn({ url: 'javascript:void(0);' }).navbar__order-btn
+                        | Request a Rate
+                    button.navbar__close-btn(aria-label="Close menu")
+                        i.zmdi.zmdi-close-circle-o(aria-hidden="true")
+                // .navbar__inner 
+            // .page__container 
+        // .navbar__container 
+    // .navbar 

@@ -28,7 +28,7 @@ function handleWindowScroll() {
  * Handle the window resize event
  */
 function handleWindowResize() {
-    // TODO: add code
+    Header.handleResize();
 }
 
 /**
