@@ -1,30 +1,33 @@
 //-
     name: header
-    description: Markup for the header block
+    description: Markup for the header block.
     arguments:
-        - {object} data - block data
-        - {object} data.banner - banner data
-        - {object} data.logo - logo data
-        - {object} data.contacts - contacts data
-        - {object} data.social - social links data
-        - {array} data.mainMenu - main menu data
-        - {array} data.langMenu - language menu
-        - {boolean} data.isHomepage - is this a home page
+        - {object} props - Block properties.
+        - {object} props.banner - Banner data.
+        - {object} props.logo - Logo data.
+        - {object} props.contacts - Contacts data.
+        - {object} props.social - Social links data.
+        - {array} props.mainMenu - Main menu data.
+        - {array} props.langMenu - Language menu.
+        - {boolean} props.isHomepage - Is this a home page?
 
-mixin header(data = {})
+mixin header(props = {})
     header.header&attributes(attributes)
-        if data.banner
-            +top-banner(data.banner)
+        if props.banner
+            +top-banner(props.banner)
 
         .header__top#header-top(tabindex="-1")
             .header__top-inner.page__container
                 +logo({
-                    img: data.logo.img,
-                    alt: data.logo.alt,
-                    isHeading: data.isHomepage && !data.banner,
+                    img: props.logo.img,
+                    alt: props.logo.alt,
+                    isHeading: props.isHomepage && !props.banner,
                 }).header__logo
-                +top-contacts(data.contacts).header__contacts
-                +top-social(data.social).header__social
+
+                +top-contacts(props.contacts).header__contacts
+
+                +top-social(props.social).header__social
+
                 button(
                     aria-expanded="false"
                     aria-haspopup="true"
@@ -32,10 +35,8 @@ mixin header(data = {})
                     aria-controls="navbar"
                 ).header__navbar-toggle
                     i.zmdi.zmdi-menu(aria-hidden="true")
-            // .header__top-inner 
-        // .header__top 
 
         +navbar({
-            mainMenu: data.mainMenu,
-            langMenu: data.langMenu
-        })#navbar
+            mainMenu: props.mainMenu,
+            langMenu: props.langMenu
+        }).header__navbar#navbar

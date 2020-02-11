@@ -17,10 +17,10 @@
     // BEM elements
     &__trigger {
         height: 100%;
-        padding: 0 15px;
+        padding: 0 0.75em;
 
         color: #ffffff;
-        @include font-size(20px);
+        font-size: 1.25em;
 
         background: transparent;
         border: 0;
@@ -39,8 +39,8 @@
         position: absolute;
         top: 100%;
 
-        min-width: 230px;
-        padding-top: 5px;
+        min-width: 14.375em;
+        padding-top: 0.3125em;
 
         opacity: 0;
         visibility: hidden;
@@ -58,7 +58,7 @@
     }
 
     &__list {
-        padding: 10px 0;
+        padding: 0.625em 0;
 
         background: $color-chathams-blue;
     }
@@ -69,9 +69,9 @@
         &:after {
             content: "";
 
-            left: 30px;
+            left: 1.875em;
             position: absolute;
-            right: 30px;
+            right: 1.875em;
 
             display: block;
             height: 1px;
@@ -82,11 +82,11 @@
 
     &__link {
         display: block;
-        padding: 16px 30px;
+        padding: 1.2em 2.2em;
 
         color: $color-white;
         font-family: $font-family-title;
-        @include font-size(14px);
+        font-size: 0.875rem;
         font-weight: $font-weight-extra-bold;
         text-decoration: none;
         text-transform: uppercase;
@@ -100,6 +100,6 @@
         }
     }
 
-    // Bem modifiers
+    // BEM modifiers
     // TODO: add code
 }

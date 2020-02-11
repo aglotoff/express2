@@ -1,9 +1,16 @@
 /**
- * Styles for the {{block}} block.
+ * Styles for the skip link block.
  */
-.{{block}} {
+.skip-link {
     // Selector styles
-    // TODO: add code
+    display: block;
+    padding: 0.75em 1.25em;
+
+    color: $color-white;
+    text-decoration: none;
+
+    background: $color-primary;
+    border: 2px solid $color-secondary;
 
     // @media queries
     // TODO: add code
@@ -17,6 +24,6 @@
     // BEM elements
     // TODO: add code
 
-    // Bem modifiers
+    // BEM modifiers
     // TODO: add code
 }

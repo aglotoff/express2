@@ -53,7 +53,7 @@
         top: 0;
         z-index: 300;
 
-        width: 320px;
+        width: 20em;
 
         background: $color-chathams-blue;
 
@@ -73,7 +73,7 @@
         }
 
         .navbar_visible & {
-            transform: translateX(-320px);
+            transform: translateX(-100%);
             transition-delay: 0s;
             visibility: visible;
 
@@ -84,7 +84,7 @@
     }
 
     &__inner {
-        padding: 48px 6px 6px;
+        padding: 3em 0.375em 0.375em;
 
         @include breakpoint-up(lg) {
             align-items: center;
@@ -94,15 +94,15 @@
     }
 
     &__close-btn {
-        left: 18px;
+        left: 0.75em;
         position: absolute;
-        top: 6px;
+        top: 0.25em;
 
-        margin-bottom: 10px;
+        margin-bottom: 0.4em;
         padding: 0;
 
         color: $color-white;
-        @include font-size(24px);
+        font-size: 1.5rem;
 
         background: transparent;
         border: 0;
@@ -121,11 +121,11 @@
     }
 
     &__search {
-        margin-top: 16px;
+        margin-top: 1em;
 
         @include breakpoint-up(lg) {
             align-self: stretch;
-            margin-left: 5px;
+            margin-left: 0.3125em;
             margin-top: 0;
         }
     }
@@ -140,7 +140,7 @@
     }
 
     &__order-btn {
-        margin-top: 24px;
+        margin-top: 1.5em;
         width: 100%;
 
         @include breakpoint-up(lg) {
@@ -150,6 +150,6 @@
         }
     }
 
-    // Bem modifiers
+    // BEM modifiers
     // TODO: add code
 }

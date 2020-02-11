@@ -1,0 +1,60 @@
+/**
+ * @file Implementation of the {{blockTitle}} block.
+ * @author Andrey Glotov
+ */
+
+// -------------------------- BEGIN MODULE VARIABLES --------------------------
+
+const BLOCK_NAME = '{{blockName}}';
+
+const CLASSNAME = {
+    BLOCK: BLOCK_NAME,
+};
+
+const SELECTOR = {
+    BLOCK: `.${BLOCK_NAME}`,
+};
+
+// TODO: add code here
+
+// --------------------------- END MODULE VARIABLES ---------------------------
+
+/**
+ * {{blockTitle}}.
+ */
+export class {{constructorName}} {
+    /**
+     * Initialize the {{blockTitle}} block.
+     * 
+     * @param {HTMLElement} rootElement The root element of the block.
+     */
+    constructor(rootElement) {
+        // TODO: add code here
+    }
+
+    // ------------------------- BEGIN PRIVATE METHODS ------------------------
+
+    // TODO: add code here
+
+    // -------------------------- END PRIVATE METHODS -------------------------
+
+    // -------------------------- BEGIN EVENT HANDLERS ------------------------
+
+    // TODO: add code here
+
+    // --------------------------- END EVENT HANDLERS -------------------------
+
+    // -------------------------- BEGIN PUBLIC METHODS ------------------------
+
+    /**
+     * Initialize all {{blockTitle}} blocks on the page.
+     */
+    static initAll() {
+        const blocks = [].slice.call(document.querySelectorAll(SELECTOR.BLOCK));
+        for (const block of blocks) {
+            new {{constructorName}}(block);
+        }
+    }
+
+    // --------------------------- END PUBLIC METHODS -------------------------
+}

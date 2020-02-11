@@ -1,13 +1,14 @@
 //-
     name: lang-menu
-    description: Markup for the language menu block
+    description: Markup for the language menu block.
     arguments:
-        - {array} data - block data
-        - {string} data[].lang - item lang (optional)
-        - {string} data[].text - item text
-        - {string} data[].url - item URL
+        - {object} props - Block properties.
+        - {array} props.items - Menu items.
+        - {string} props.items[].lang - Item lang (optional).
+        - {string} props.items[].text - Item text.
+        - {string} props.items[].url - Item URL.
 
-mixin lang-menu(data = [])
+mixin lang-menu(props)
     .lang-menu&attributes(attributes)
         button(
             aria-haspopup="true"
@@ -19,9 +20,7 @@ mixin lang-menu(data = [])
 
         .lang-menu__drop
             ul.lang-menu__list
-                each item in data
+                each item in props.items
                     li.lang-menu__item
                         a(href=item.url lang=item.lang).lang-menu__link
                             = item.text
-        // .lang-menu__drop 
-    // .lang-menu 

@@ -25,17 +25,19 @@
 
         &:not(:last-child) {   
             &:after {
-                @include breakpoint-down(md) {
-                    content: "";
+                content: "";
         
-                    left: 0;
-                    position: absolute;
-                    right: 0;
-        
-                    display: block;
-                    height: 1px;
-        
-                    background: rgba($color-white, 0.15);
+                left: 0;
+                position: absolute;
+                right: 0;
+    
+                display: block;
+                height: 1px;
+    
+                background: rgba($color-white, 0.15);
+                
+                @include breakpoint-up(lg) {
+                    display: none;
                 }
             }
         }
@@ -43,11 +45,11 @@
 
     &__link {
         display: block;
-        padding: 14px 0;
+        padding: 1em 0;
 
         color: $color-white;
         font-family: $font-family-title;
-        @include font-size(14px);
+        font-size: 0.875rem;
         font-weight: $font-weight-extra-bold;
         text-decoration: none;
         text-transform: uppercase;
@@ -55,9 +57,9 @@
         transition: color 0.2s linear;
 
         @include breakpoint-up(lg) {
-            padding: 23px 22px;
+            padding: 1.375em;
 
-            @include font-size(16px);
+            font-size: 1rem;
         }
 
         &:hover,
@@ -75,9 +77,9 @@
     &__arrow {
         right: 0;
         position: absolute;
-        top: 8px;
+        top: 0.4em;
 
-        @include font-size(20px);
+        font-size: 1.25rem;
 
         @include breakpoint-up(lg) {
             display: none;
@@ -86,7 +88,7 @@
 
     &__submenu {
         display: none;
-        padding-bottom: 10px;
+        padding-bottom: 0.625em;
 
         @include breakpoint-up(lg) {
             left: 0;
@@ -94,9 +96,9 @@
             top: 100%;
 
             display: block;
-            min-width: 270px;
+            min-width: 16.875em;
             padding-bottom: 0;
-            padding-top: 5px;
+            padding-top: 0.3125em;
 
             opacity: 0;
             visibility: hidden;
@@ -117,10 +119,10 @@
     }
 
     &__sub-list {
-        padding-left: 20px;
+        padding-left: 1.25em;
 
         @include breakpoint-up(lg) {
-            padding: 10px 0;
+            padding: 0.625em 0;
 
             background: $color-chathams-blue;
         }
@@ -133,9 +135,9 @@
             &:after {
                 content: "";
 
-                left: 30px;
+                left: 1.875em;
                 position: absolute;
-                right: 30px;
+                right: 1.875em;
 
                 display: block;
                 height: 1px;
@@ -147,11 +149,11 @@
 
     &__sub-link {
         display: block;
-        padding: 10px 0;
+        padding: 0.7em 0;
 
         color: $color-white;
         font-family: $font-family-title;
-        @include font-size(14px);
+        font-size: 0.875rem;
         font-weight: $font-weight-extra-bold;
         text-decoration: none;
         text-transform: uppercase;
@@ -160,7 +162,7 @@
         transition: color 0.2s linear;
 
         @include breakpoint-up(lg) {
-            padding: 16px 30px;
+            padding: 1.2em 2.2em;
         }
 
         &:hover,
@@ -169,6 +171,6 @@
         }
     }
 
-    // Bem modifiers
+    // BEM modifiers
     // TODO: add code
 }

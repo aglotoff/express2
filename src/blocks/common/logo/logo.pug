@@ -1,17 +1,17 @@
 //-
     name: logo
-    description: Markup for the logo block
+    description: Markup for the logo block.
     arguments:
-        - {object} data - block data
-        - {string} data.img - logo image
-        - {string} data.text - logo alt text
-        - {boolean} data.isHeading - is this logo an H1 heading
+        - {object} props - Block properties.
+        - {string} props.img - Logo image.
+        - {string} props.text - Logo alt text.
+        - {boolean} props.isHeading - Is this logo an H1 heading?
 
-mixin logo(data = {})
-    if data.isHeading
+mixin logo(props = {})
+    if props.isHeading
         h1.logo&attributes(attributes)
-            img(src=data.img, alt="").logo__img
-            span.logo__text= data.text
+            img(src=props.img, alt="").logo__img
+            span.logo__text= props.text
     else
         a(href=".").logo&attributes(attributes)
-            img(src=data.img, alt=data.text).logo__img
+            img(src=props.img, alt=props.text).logo__img

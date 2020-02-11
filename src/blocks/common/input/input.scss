@@ -4,15 +4,15 @@
 .input {
     // Selector styles
     display: block;
-    height: 48px;
-    padding: 0 16px;
+    height: 3.5em;
+    padding: 0 1.2em;
     width: 100%;
 
     color: $color-white;
-    font-family: $font-family-regular;
-    @include font-size(14px);
+    font-family: $font-family-default;
+    font-size: 0.875rem;
 
-    background: $color-mine-shaft;
+    background: rgba($color-mine-shaft, 0.6);
     background-clip: padding-box;
     border: 1px solid rgba($color-white, 0.15);
 
@@ -32,6 +32,6 @@
     // BEM elements
     // TODO: add code
 
-    // Bem modifiers
+    // BEM modifiers
     // TODO: add code
 }

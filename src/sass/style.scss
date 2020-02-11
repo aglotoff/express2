@@ -1,12 +1,14 @@
+// Partial imports
 @import "variables";
 @import "mixins";
 @import "fonts";
 @import "base";
 
-// TODO: include third-party styles
+// Third-party imports
+// TODO: add code here
 
+// Common imports
 @import "../blocks/common/page/page";
-
 @import "../blocks/common/header/header";
 @import "../blocks/common/top-banner/top-banner";
 @import "../blocks/common/logo/logo";
@@ -18,3 +20,4 @@
 @import "../blocks/common/input/input";
 @import "../blocks/common/lang-menu/lang-menu";
 @import "../blocks/common/btn/btn";
+@import "../blocks/common/skip-link/skip-link";

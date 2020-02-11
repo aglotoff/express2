@@ -1,5 +1,5 @@
 /**
- * Styles for the header-search block.
+ * Styles for the header search block.
  */
 .header-search {
     // Selector styles
@@ -21,10 +21,10 @@
         @include breakpoint-up(lg) {
             display: block;
             height: 100%;
-            padding: 0 15px;
+            padding: 0 0.75em;
 
             color: #ffffff;
-            @include font-size(20px);
+            font-size: 1.25rem;
 
             background: transparent;
             border: 0;
@@ -45,8 +45,8 @@
             position: absolute;
             top: 100%;
 
-            min-width: 270px;
-            padding-top: 5px;
+            min-width: 16.875em;
+            padding-top: 0.3125em;
 
             opacity: 0;
             visibility: hidden;
@@ -68,12 +68,12 @@
 
     &__form {
         @include breakpoint-up(lg) {
-            padding: 10px 10px;
+            padding: 0.625em;
 
             background: $color-chathams-blue;
         }
     }
 
-    // Bem modifiers
+    // BEM modifiers
     // TODO: add code
 }

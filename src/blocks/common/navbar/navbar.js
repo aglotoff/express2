@@ -1,46 +1,53 @@
 /**
- * @file Implementation of the navbar block
+ * @file Implementation of the navbar block.
  * @author Andrey Glotov
  */
 
 /* global focusTrap */
 
 // -------------------------- BEGIN MODULE VARIABLES --------------------------
-const elements = {};    // Cache for DOM elements
-let trap = null;        // Focus Trap instance
+
+const elements = {};    // Cache for DOM elements.
+let trap = null;        // Focus Trap instance.
+
 // --------------------------- END MODULE VARIABLES ---------------------------
 
 // ----------------------------- BEGIN DOM METHODS ----------------------------
+
 /**
- * Apply mobile visible styles to the navbar
+ * Apply mobile visible styles to the navbar.
  */
 function showMobileNavbar() {
     elements.navbar.classList.add('navbar_visible');
 }
 
 /**
- * Apply mobile hidden styles to the navbar
+ * Apply mobile hidden styles to the navbar.
  */
 function hideMobileNavbar() {
     elements.navbar.classList.remove('navbar_visible');
 }
+
 // ------------------------------ END DOM METHODS -----------------------------
 
 // --------------------------- BEGIN EVENT HANDLERS ---------------------------
+
 /**
  * Handle a click event on the close button
  */
 function handleCloseClick() {
     hide();
 }
+
 // ---------------------------- END EVENT HANDLERS ----------------------------
 
 // --------------------------- BEGIN PUBLIC METHODS ---------------------------
+
 /**
  * Initialize the navbar block.
- * @return true if the block is present on the page, false otherwise
+ * @return true if the block is present on the page, false otherwise.
  */
-function initBlock() {
+export function initBlock() {
     elements.navbar = document.querySelector('.navbar');
     elements.container = document.querySelector('.navbar__container');
     elements.closeBtn = elements.container.querySelector('.navbar__close-btn');
@@ -57,23 +64,18 @@ function initBlock() {
 }
 
 /**
- * Hide the navbar on mobile screens
+ * Hide the navbar on mobile screens.
  */
-function hide() {
+export function hide() {
     trap.deactivate();
 }
 
 /**
- * Show the navbar on mobile screens
+ * Show the navbar on mobile screens.
  */
-function show() {
+export function show() {
     showMobileNavbar();
     trap.activate();
 }
-// ---------------------------- END PUBLIC METHODS ----------------------------
 
-export default {
-    initBlock,
-    show,
-    hide,
-};
+// ---------------------------- END PUBLIC METHODS ----------------------------

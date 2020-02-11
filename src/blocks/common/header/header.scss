@@ -3,7 +3,7 @@
  */
 .header {
     // Selector styles
-    box-shadow: 0 2px 5px rgba($color-black, 0.1);
+    box-shadow: 0 0.125em 0.3125em rgba($color-black, 0.1);
 
     // @media queries
     @include breakpoint-up(lg) {
@@ -17,30 +17,47 @@
     // TODO: add code
 
     // BEM elements
+    &__top {
+        border-bottom: 1px solid #000;
+
+        @include breakpoint-up(lg) {
+            border-bottom: 0;
+        }
+    }
+
     &__top-inner {
         align-items: center;
         display: flex;
-        padding-bottom: 24px;
-        padding-top: 24px;
+        padding-bottom: 0.25em;
+        padding-top: 0.25em;
+
+        @include breakpoint-up(md) {
+            padding-bottom: 0.5em;
+            padding-top: 0.5em;
+        }
 
         @include breakpoint-up(lg) {
-            padding-bottom: 36px;
-            padding-top: 36px;
+            padding-bottom: 1.75em;
+            padding-top: 1.75em;
         }
 
         @include breakpoint-up(xl) {
-            padding-bottom: 40px;
-            padding-top: 40px;
+            padding-bottom: 2em;
+            padding-top: 2em;
         }
     }
 
     &__logo {
-        flex: 1 1;
-        margin-right: 30px;
-        max-width: 200px;
+        flex: 1 1 auto;
+        margin-right: 1.875em;
+        max-width: 9.5em;
+
+        @include breakpoint-up(md) {
+            max-width: 12em;
+        }
 
         @include breakpoint-up(lg) {
-            max-width: 260px;
+            max-width: 16.25em;
         }
     }
 
@@ -49,14 +66,18 @@
     }
 
     &__social {
-        margin-left: 30px;
+        margin-left: 1em;
+
+        @include breakpoint-up(xl) {
+            margin-left: 1.875em;
+        }
     }
 
     &__navbar-toggle {
         margin-left: auto;
-        padding: 2px;
+        padding: 0.1em;
 
-        @include font-size(24px);
+        font-size: 1.5rem;
 
         background: transparent;
         border: 0;
@@ -67,6 +88,59 @@
         }
     }
 
-    // Bem modifiers
-    // TODO: add code
+    // BEM modifiers
+    &_scroll {
+        > .header__top {
+            left: 0;
+            position: fixed;
+            right: 0;
+            top: 0;
+
+            @include breakpoint-up(lg) {
+                position: static;
+            }
+        }
+
+        > .header__navbar {
+            @include breakpoint-up(lg) {
+                left: 0;
+                position: fixed;
+                right: 0;
+                top: 0;
+            }
+        }
+    }
+
+    &_animated {
+        > .header__top {
+            transition: transform 0.25s linear;
+
+            @include breakpoint-up(lg) {
+                transition: none;
+            }
+        }
+
+        > .header__navbar {
+            @include breakpoint-up(lg) {
+                transition: transform 0.25s linear;
+            }
+        }
+    }
+
+    /* Don't show the header until scrolled to a certain position */
+    &_hidden {
+        > .header__top {
+            transform: translateY(-100%);
+
+            @include breakpoint-up(lg) {
+                transform: none;
+            }
+        }
+
+        > .header__navbar {
+            @include breakpoint-up(lg) {
+                transform: translateY(-100%);
+            }
+        }
+    }
 }

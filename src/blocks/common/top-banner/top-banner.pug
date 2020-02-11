@@ -2,23 +2,22 @@
     name: top-banner
     description: Markup for the top banner block
     arguments:
-        - {object} data - block data
-        - {string} data.title - banner title
-        - {string} data.text - banner text
-        - {string} data.bg - backgroung image
+        - {object} props - Block properties.
+        - {string} props.title - Banner title.
+        - {string} props.text - Banner text.
+        - {string} props.bg - Backgroung image.
 
-mixin top-banner(data = {})
+mixin top-banner(props)
     .top-banner(
-        style=`background-image: url("${data.bg}");`
+        style=`background-image: url("${props.bg}");`
     )&attributes(attributes)
-        .top-banner__content
-            h1.top-banner__title= data.title
-            p.top-banner__text= data.text
-        // .top-banner__content 
+        .top-banner__inner
+            .top-banner__content
+                h1.top-banner__title= props.title
+                p.top-banner__text= props.text
 
-        a(
-            href="#header-top"
-            aria-label="Skip to site content"
-        ).top-banner__scroll
-            i.zmdi.zmdi-chevron-down(aria-hidden="true")
-    // .top-banner 
+            a(
+                href="#header-top"
+                aria-label="Scroll down"
+            ).top-banner__scroll.top-banner__scroll_animated
+                i.zmdi.zmdi-chevron-down(aria-hidden="true")

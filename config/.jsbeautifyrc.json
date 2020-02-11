@@ -6,5 +6,7 @@
             "s",    "samp", "small", "strong", "sub", "sup",  "u",    "var",
             "wbr"
         ]
-    }
+    },
+    "indent-size": 4,
+    "indentSize": 4
 }

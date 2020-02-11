@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 const minimist = require('minimist');
 
 /**
@@ -16,6 +18,7 @@ const {env} = minimist(process.argv.slice(2), {
 const TOP = '.';
 const SRC = `${TOP}/src`
 const DIST = `${TOP}/dist`;
+const CONFIG = `${TOP}/config`;
 
 module.exports = {
     env,
@@ -28,22 +31,21 @@ module.exports = {
         src:  SRC,
         dest: DIST,
 
+        assets: {
+            src: `${SRC}/assets/**/*`,
+            dest: `${DIST}/assets`,
+            watch: `${SRC}/assets/**/*`,
+            clean: [
+                `${DIST}/assets/**/*`,
+                `!${DIST}/assets/{css,img,js}/**/*`,
+            ],
+        },
         css: {
-            src: [`${SRC}/sass/*.scss`, `!${SRC}/sass/_*.scss`],
-            dest: `${DIST}/css`,
+            src: [ `${SRC}/sass/*.scss`, `!${SRC}/sass/_*.scss` ],
+            dest: `${DIST}/assets/css`,
             lint: `${SRC}/**/*.scss`,
             watch: `${SRC}/**/*.scss`,
-            clean: `${DIST}/css/**/*.css`,
-        },
-        deploy: {
-            src: [`${DIST}/**`, `!${DIST}/**/*.map`],
-            dest: `/htdocs/test`,
-        },
-        fonts: {
-            src: `${SRC}/fonts/*.{ttf,woff,woff2}`,
-            dest: `${DIST}/fonts`,
-            watch: `${SRC}/fonts/*.{ttf,woff,woff2}`,
-            clean: `${DIST}/fonts/*.{ttf,woff,woff2}`,
+            clean: `${DIST}/assets/css/**/*.css{,.map}`,
         },
         html: {
             src: `${SRC}/pug/pages/*.pug`,
@@ -59,20 +61,23 @@ module.exports = {
             src: `${SRC}/icons/*.svg`,
             dest: `${SRC}`,
             watch: `${SRC}/icons/*.svg`,
-            clean: [`${SRC}/img/icons.svg`, `${SRC}/blocks/icon/icon.scss`],
+            clean: [
+                `${SRC}/img/icons.svg`,
+                `${SRC}/blocks/common/icon/icon.scss`
+            ],
         },
         img: {
             src: `${SRC}/img/**/*.{gif,jpg,jpeg,ico,png,svg}`,
-            dest: `${DIST}/img`,
+            dest: `${DIST}/assets/img`,
             watch: `${SRC}/img/**/*.{gif,jpg,jpeg,ico,png,svg}`,
-            clean: `${DIST}/img/*.{gif,jpg,jpeg,ico,png,svg}`,
+            clean: `${DIST}/assets/img/*.{gif,jpg,jpeg,ico,png,svg,webp}`,
         },
         js: {
-            src: [`${SRC}/js/vendor.js`, `${SRC}/js/main.js`],
-            dest: `${DIST}/js`,
+            src: `${SRC}/js/*.js`,
+            dest: `${DIST}/assets/js`,
             lint: `${SRC}/**/*.js`,
             watch: `${SRC}/**/*.js`,
-            clean: `${DIST}/js/**/*.js{,.map}`,
+            clean: `${DIST}/assets/js/**/*.js{,.map}`,
         },
     },
 
@@ -92,18 +97,13 @@ module.exports = {
         browserSync: {
             server: DIST
         },
-        ftp: {
-            host: 'host',
-            user: 'user',
-            password: 'password',
-            parallel: 10,
-        },
+        beautify: JSON.parse(fs.readFileSync(`${CONFIG}/.jsbeautifyrc.json`)),
         imagemin: {
             svgo: {
                 plugins: [
-                    {removeXMLProcInst: false},
-                    {cleanupIDs:false},
-                    {removeAttrs: {attrs: ''}}
+                    { removeXMLProcInst: false },
+                    { cleanupIDs: false },
+                    { removeAttrs: { attrs: '' } }
                 ]
             },
         },
@@ -121,7 +121,7 @@ module.exports = {
 					render: {
 						scss: {
 							dest: '../blocks/common/icon/icon.scss',
-							template: `${SRC}/templates/icon.mustache`,
+							template: `${SRC}/blocks/common/icon/icon.mustache`,
 						}
 					}
 				}
@@ -134,6 +134,7 @@ module.exports = {
                 formatter: 'string',
                 console: true
             }],
+            configFile: `${CONFIG}/.stylelintrc.json`,
         },
     },
 };

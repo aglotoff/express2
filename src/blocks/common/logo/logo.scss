@@ -4,12 +4,15 @@
 .logo {
     // Selector styles
     display: block;
+    padding: 0.5em 0;
 
     // @media queries
     // TODO: add code
 
     // Pseudo-classes and pseudo-elements
-    // TODO: add code
+    .focus-utility &:focus {
+        box-shadow: 0 0 0 0.25em rgba($color-secondary, 0.6);
+    }
 
     // Nested selectors
     // TODO: add code
@@ -20,6 +23,6 @@
         width: 100%;
     }
 
-    // Bem modifiers
+    // BEM modifiers
     // TODO: add code
 }

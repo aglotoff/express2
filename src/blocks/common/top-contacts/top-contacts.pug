@@ -1,36 +1,38 @@
 //-
     name: top-contacts
-    description: Markup for the top contacts block
+    description: Markup for the top contacts block.
     arguments:
-        - {object} data - block data
-        - {string} data.phone - phone number
-        - {string} data.openingTime - opening hours
-        - {string} data.email - email
+        - {object} props - Block properties.
+        - {string} props.phone - Phone number.
+        - {string} props.openingTime - Opening hours.
+        - {string} props.email - Email.
 
-mixin top-contacts(data = {})
+mixin top-contacts(props = {})
     ul.top-contacts&attributes(attributes)
-        if data.phone
+        if props.phone
             li.top-contacts__item
                 .top-contacts__icon(aria-hidden="true")
                     i.zmdi.zmdi-phone
                 .top-contacts__info
                     span.top-contacts__title Call us anytime
-                    span.top-contacts__value= data.phone
-            // .top-contacts__item 
-        if data.openingTime
+                    a(
+                        href=`tel:${props.phone}`
+                    ).top-contacts__value.top-contacts__value_link= props.phone
+
+        if props.openingTime
             li.top-contacts__item
                 .top-contacts__icon(aria-hidden="true")
                     i.zmdi.zmdi-time
                 .top-contacts__info
                     span.top-contacts__title Opening time
-                    span.top-contacts__value= data.openingTime
-            // .top-contacts__item 
-        if data.email
+                    span.top-contacts__value= props.openingTime
+
+        if props.email
             li.top-contacts__item
                 .top-contacts__icon(aria-hidden="true")
                     i.zmdi.zmdi-email
                 .top-contacts__info
                     span.top-contacts__title Contact us
-                    span.top-contacts__value= data.email
-            // .top-contacts__item 
-    // .top-contacts 
+                    a(
+                        href=`mailto:${props.email}`
+                    ).top-contacts__value.top-contacts__value_link= props.email

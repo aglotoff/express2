@@ -1,13 +1,13 @@
 //-
     name: btn
-    description: Markup for the button block
+    description: Markup for the button block.
     arguments:
-        - {object} data - block data
-        - {string} data.url - target URL (optional)
+        - {object} props - Block properties.
+        - {string} props.url - Target URL (optional).
 
-mixin btn(data = {})
-    if data.url
-        a(href=data.url).btn&attributes(attributes)
+mixin btn(props = {})
+    if props.url
+        a(href=props.url).btn&attributes(attributes)
             if block
                 block
     else

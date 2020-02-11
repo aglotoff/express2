@@ -1,13 +1,41 @@
 /**
  * Styles for the page block
  */
-.page {
-    color: $color-mine-shaft;
-    font-family: $font-family-regular;
+ .page {
+    // Selector styles
+    font-family: $font-family-default;
+    font-size: 1rem;
     font-weight: $font-weight-regular;
-    line-height: $line-height-base;
+    line-height: $line-height-default;
 
+    // @media queries
+    // TODO: add code
+
+    // Pseudo-classes and pseudo-elements
+    // TODO: add code
+
+    // Nested selectors
+    // TODO: add code
+
+    // BEM elements
     &__container {
         @include container();
     }
+
+    // BEM elements
+    &__skip-link {
+        left: 0;
+        position: fixed;
+        top: 0;
+        z-index: 200;
+
+        transform: translateY(-100px);
+
+        &:focus {
+            transform: translateY(0);
+        }
+    }
+
+    // BEM modifiers
+    // TODO: add code
 }

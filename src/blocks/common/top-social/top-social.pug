@@ -1,35 +1,34 @@
 //-
     name: top-social
-    description: Markup for the top social icons block
+    description: Markup for the top social icons block.
     arguments:
-        - {object} data - block data
-        - {string} data.facebook - Facebook account URL
-        - {string} data.twitter - Twitter account URL
-        - {string} data.linkedin - LinkedIn account URL
+        - {object} props - Block properties.
+        - {string} props.facebook - Facebook account URL.
+        - {string} props.twitter - Twitter account URL.
+        - {string} props.linkedin - LinkedIn account URL.
 
-mixin top-social(data = {})
+mixin top-social(props = {})
     ul.top-social&attributes(attributes)
-        if data.facebook
+        if props.facebook
             li.top-social__item
                 a(
-                    href=data.facebook
+                    href=props.facebook
                     aria-label="Follow on Facebook"
                 ).top-social__link
                     i.zmdi.zmdi-facebook(aria-hidden="true")
 
-        if data.twitter
+        if props.twitter
             li.top-social__item
                 a(
-                    href=data.twitter
+                    href=props.twitter
                     aria-label="Follow on Twitter"
                 ).top-social__link
                     i.zmdi.zmdi-twitter(aria-hidden="true")
 
-        if data.linkedin
+        if props.linkedin
             li.top-social__item
                 a(
-                    href=data.linkedin
+                    href=props.linkedin
                     aria-label="Follow on LinkedIn"
                 ).top-social__link
                     i.zmdi.zmdi-linkedin(aria-hidden="true")
-    // .top-social 

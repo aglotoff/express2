@@ -1,41 +1,42 @@
 {
   "name": "express2",
-  "version": "1.0.1",
+  "version": "0.1.0",
   "description": "Express 2 HTML Template",
   "private": true,
   "scripts": {
-    "make-block": "node utils/make-block",
-    "start": "gulp",
-    "build": "gulp build --env=production",
-    "deploy": "gulp deploy",
-    "gulp": "gulp"
+    "start": "gulp --cwd . --gulpfile config/gulpfile.js",
+    "build": "gulp build --cwd . --gulpfile config/gulpfile.js --env=production",
+    "gulp": "gulp --cwd . --gulpfile config/gulpfile.js",
+    "make-block": "node scripts/make-block",
+    "bump-version": "node scripts/bump-version"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/polarfawx/express2.git"
+    "url": "git+https://github.com/aglotoff/express2.git"
   },
   "author": "Andrey Glotov",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/polarfawx/express2/issues"
+    "url": "https://github.com/aglotoff/express2/issues"
   },
-  "homepage": "https://github.com/polarfawx/express2#readme",
+  "homepage": "https://github.com/aglotoff/express2#readme",
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "autoprefixer": "^9.5.1",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.5",
     "browser-sync": "^2.26.3",
     "cssnano": "^4.1.10",
     "del": "^4.1.0",
     "eslint": "^5.16.0",
-    "eslint-loader": "^2.1.2",
-    "fancy-log": "^1.3.3",
+    "eslint-loader": "^2.2.1",
+    "event-stream": "^4.0.1",
     "gulp": "^4.0.0",
+    "gulp-beautify": "^3.0.0",
     "gulp-changed": "^3.2.0",
+    "gulp-clone": "^2.0.1",
     "gulp-data": "^1.3.1",
     "gulp-filter": "^5.1.0",
-    "gulp-html-beautify": "^1.0.1",
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^5.0.3",
     "gulp-plumber": "^1.2.1",
@@ -48,21 +49,21 @@
     "gulp-svg-sprite": "^1.5.0",
     "gulp-tap": "^1.0.1",
     "gulp-wait": "0.0.2",
+    "gulp-webp": "^4.0.1",
     "imagemin-mozjpeg": "^8.0.0",
     "lazypipe": "^1.0.2",
     "minimist": "^1.2.0",
-    "mkdirp": "^0.5.1",
     "mustache": "^3.0.1",
     "require-dir": "^1.2.0",
     "stylelint": "^10.0.0",
-    "stylelint-scss": "^3.5.4",
-    "vinyl-ftp": "^0.6.1",
+    "stylelint-scss": "^3.9.3",
     "vinyl-named": "^1.1.0",
-    "webpack": "^4.30.0",
+    "webpack": "^4.39.1",
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {
-    "focus-trap": "^5.0.1",
+    "focus-trap": "^5.1.0",
+    "promise-polyfill": "^8.1.3",
     "svg4everybody": "^2.1.9"
   }
 }

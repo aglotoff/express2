@@ -7,25 +7,24 @@
 // Available tasks:
 //   `gulp`
 //   `gulp serve`
-//   `gulp deploy`
 //   `gulp build`
 //   `gulp build:css`
 //   `gulp lint:css`
-//   `gulp build:fonts`
+//   `gulp build:assets`
 //   `gulp build:html`
 //   `gulp build:icons`
 //   `gulp build:img`
 //   `gulp build:js`
 //   `gulp watch`
 //   `gulp watch:css`
-//   `gulp watch:fonts`
+//   `gulp watch:assets`
 //   `gulp watch:html`
 //   `gulp watch:icons`
 //   `gulp watch:img`
 //   `gulp watch:js`
 //   `gulp clean`
 //   `gulp clean:css`
-//   `gulp clean:fonts`
+//   `gulp clean:assets`
 //   `gulp clean:html`
 //   `gulp clean:icons`
 //   `gulp clean:img`
@@ -44,12 +43,14 @@
 // browser-sync         : Keep multiple browsers & devices in sync
 // cssnano              : A modular minifier, built on top of PostCSS
 // del                  : Delete files and folders using globs
-// fancy-log            : Log things, prefixed with a timestamp
+// event-stream         : Construct pipes of streams of events
 // gulp                 : The streaming build system
+// gulp-beautify        : Asset beautification using js-beautify
 // gulp-changed         : Only pass through changed files
+// gulp-clone           : Duplicate files in memory
 // gulp-data            : Generate a data object for other plugins to consume
 // gulp-eslint          : A gulp plugin for ESLint
-// gulp-html-beautify   : A gulp plugin to beautify HTML files
+// gulp-filter          : Filter files in a vinyl stream
 // gulp-if              : Conditionally control the flow of vinyl objects
 // gulp-imagemin        : Minify PNG, JPEG, GIF and SVG images with imagemin
 // gulp-plumber         : Prevent pipe breaking caused by errors from plugins
@@ -69,7 +70,6 @@
 // require-dir          : Helper to require() directories
 // stylelint            : A mighty, modern CSS linter
 // stylelint-scss       : A collection of SCSS specific rules for stylelint
-// vinyl-ftp            : Blazing fast vinyl adapter for FTP
 // vinyl-named          : Give vinyl files arbitrary chunk names
 // webpack              : A module bundler
 // webpack-stream       : Run webpack as a stream
@@ -77,9 +77,7 @@
 // ----------------------------------------
 
 const browserSync = require('browser-sync');
-const log = require('fancy-log');
 const gulp = require('gulp');
-const ftp = require('vinyl-ftp');
 const requireDir = require('require-dir');
 
 const config = require('./gulp/config');
@@ -94,7 +92,7 @@ global.isWatching = false;
 
 gulp.task('clean', gulp.parallel(
     'clean:css',
-    'clean:fonts',
+    'clean:assets',
     'clean:html',
     'clean:icons',
     'clean:img',
@@ -114,7 +112,7 @@ gulp.task('build', gulp.series(
             'build:css',
             'build:img'
         ),
-        'build:fonts',
+        'build:assets',
         'build:html',
         'build:js'
     )
@@ -126,7 +124,7 @@ gulp.task('build', gulp.series(
 
 gulp.task('watch', gulp.parallel(
     'watch:css',
-    'watch:fonts',
+    'watch:assets',
     'watch:html',
     'watch:icons',
     'watch:img',
@@ -139,24 +137,6 @@ gulp.task('watch', gulp.parallel(
 
 gulp.task('serve', () => {
     return browserSync.init(config.plugins.browserSync);
-});
-
-// ----------------------------------------
-//   Task: Deploy
-// ----------------------------------------
-
-gulp.task('deploy', () => {
-    const conn = ftp.create({
-        ...config.plugins.ftp,
-        log
-    });
-
-    return gulp.src(config.paths.deploy.src, {
-            base: config.paths.dest,
-            buffer: false,
-        })
-        .pipe(conn.newer(config.paths.deploy.dest))
-        .pipe(conn.dest(config.paths.deploy.dest));
 });
 
 // ----------------------------------------

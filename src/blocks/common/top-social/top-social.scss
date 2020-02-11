@@ -5,7 +5,7 @@
     // Selector styles
     display: none;
 
-    @include font-size(22px);
+    font-size: 1.375rem;
 
     // @media queries
     @include breakpoint-up(lg) {
@@ -13,7 +13,7 @@
     }
 
     @include breakpoint-up(xl) {
-        @include font-size(24px);
+        font-size: 1.5rem;
     }
 
     // Pseudo-classes and pseudo-elements
@@ -24,26 +24,29 @@
 
     // BEM elements
     &__item {
-        &:not(:first-child) {
-            margin-left: 24px;
+        &:last-child {
+            margin-right: -0.5em;
         }
     }
 
     &__link {
+        display: block;
+        padding: 0.5em;
+
         color: $color-primary;
         text-decoration: none;
 
         transition: color 0.2s linear;
 
-        &:focus {
-            box-shadow: 0 0 0 2px rgba($color-primary, .5)
-        }
-
         &:hover {
             color: $color-secondary;
         }
+
+        .focus-utility &:focus {
+            box-shadow: 0 0 0 0.15em rgba($color-secondary, .6)
+        }
     }
 
-    // Bem modifiers
+    // BEM modifiers
     // TODO: add code
 }

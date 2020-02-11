@@ -25,41 +25,41 @@
             content: "";
 
             display: block;
-            height: 36px;
-            margin-left: 18px;
-            width: 1px;
+            height: 2.25em;
+            margin-left: 1.125em;
 
-            background: $color-alto;
+            border-right: 1px solid $color-alto;
 
             @include breakpoint-up(xl) {
-                margin-left: 30px;
+                margin-left: 1.875em;
             }
         }
 
         &:not(:first-child) {
-            margin-left: 18px;
+            margin-left: 1.125em;
 
             @include breakpoint-up(xl) {
-                margin-left: 30px;
+                margin-left: 1.875em;
             }
         }
     }
 
     &__icon {
         color: $color-regular-blue;
-        @include font-size(36px);
+        font-size: 2rem;
         line-height: 1;
 
         @include breakpoint-up(xl) {
-            @include font-size(40px);
+            font-size: 2.5rem;
         }
     }
 
     &__info {
-        margin-left: 12px;
+        margin-left: 1em;
 
         font-family: $font-family-title;
-        @include font-size(14px);
+        font-size: 0.875rem;
+        line-height: 1.6;
     }
 
     &__title {
@@ -74,8 +74,20 @@
 
         color: $color-gray;
         font-weight: $font-weight-medium;
+
+        &_link {
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            .focus-utility &:focus {
+                box-shadow: 0 0 0 0.2em rgba($color-secondary, 0.7);
+            }
+        }
     }
 
-    // Bem modifiers
+    // BEM modifiers
     // TODO: add code
 }
