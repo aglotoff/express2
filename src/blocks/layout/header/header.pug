@@ -1,0 +1,42 @@
+//-
+    name: header
+    description: Markup for the header block.
+    arguments:
+        - {object} props - Block properties.
+        - {object} props.banner - Banner data.
+        - {object} props.logo - Logo data.
+        - {object} props.contacts - Contacts data.
+        - {object} props.social - Social links data.
+        - {array} props.mainMenu - Main menu data.
+        - {array} props.langMenu - Language menu.
+        - {boolean} props.isHomepage - Is this a home page?
+
+mixin header(props = {})
+    header.header&attributes(attributes)
+        if props.banner
+            +top-banner(props.banner)
+
+        .header__top#header-top(tabindex="-1")
+            .header__top-inner
+                +logo({
+                    img: props.logo.img,
+                    alt: props.logo.alt,
+                    isHeading: props.isHomepage && !props.banner,
+                }).header__logo
+
+                +top-contacts(props.contacts).header__contacts
+
+                +top-social(props.social).header__social
+
+                button(
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    aria-label="Open menu"
+                    aria-controls="navbar"
+                ).header__navbar-toggle
+                    i.zmdi.zmdi-menu(aria-hidden="true")
+
+        +navbar({
+            mainMenu: props.mainMenu,
+            langMenu: props.langMenu
+        }).header__navbar#navbar

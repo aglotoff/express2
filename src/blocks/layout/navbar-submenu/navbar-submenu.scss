@@ -1,0 +1,59 @@
+/**
+ * Styles for the navbar submenu block.
+ */
+.navbar-submenu {
+    // Selector styles
+    padding-left: 1.25em;
+
+    // @media queries
+    @include breakpoint-up(lg) {
+        padding-right: 1.25em;
+    }
+
+    // Pseudo-classes and pseudo-elements
+    // TODO: add code
+
+    // Nested selectors
+    // TODO: add code
+
+    // BEM elements
+    &__item {
+        @include breakpoint-up(lg) {
+            &:not(:first-child) {
+                border-top: 1px solid rgba($color-white, 0.15);
+            }
+        }
+    }
+
+    &__link {
+        display: block;
+        padding: 0.7em 0;
+
+        color: $color-white;
+        font-family: $font-family-title;
+        font-size: 0.875rem;
+        font-weight: $font-weight-extra-bold;
+        text-decoration: none;
+        text-transform: uppercase;
+        white-space: nowrap;
+
+        transition: color 0.2s linear;
+
+        @include breakpoint-up(lg) {
+            // padding: 1.2em 2.2em;
+            padding-bottom: 1.2em;
+            padding-top: 1.2em;
+        }
+
+        &:hover {
+            color: $color-secondary;
+        }
+
+        .focus-utility &:focus {
+            outline: 2px solid $color-secondary;
+        }
+    }
+
+    // BEM modifiers
+    // TODO: add code
+}

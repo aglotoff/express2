@@ -1,0 +1,174 @@
+/**
+ * Styles for the navbar block.
+ */
+.navbar {
+    // Selector styles
+    // TODO: add code
+
+    // @media queries
+    // TODO: add code
+
+    // Pseudo-classes and pseudo-elements
+    // TODO: add code
+
+    // Nested selectors
+    // TODO: add code
+
+    // BEM elements
+    &__dimmer {
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 200;
+
+        background: rgba($color-black, 0.5);
+        opacity: 0;
+
+        transition: opacity 0.2s ease-out,
+                    visibility 0s step-start 0.2s;
+        visibility: hidden;
+
+        @include breakpoint-up(lg) {
+            display: none;
+        }
+
+        .navbar_visible & {
+            opacity: 1;
+
+            transition-delay: 0s;
+            visibility: visible;
+
+            @include breakpoint-up(lg) {
+                transform: none;
+            }
+        }
+    }
+
+    &__container {
+        bottom: 0;
+        left: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 300;
+
+        width: 20em;
+
+        background: $color-chathams-blue;
+
+        overflow-y: auto;
+        transition: transform 0.2s ease-out,
+                    visibility 0s step-start 0.2s;
+        visibility: hidden;
+
+        @include breakpoint-up(lg) {
+            position: static;
+
+            width: auto;
+
+            overflow: visible;
+            transition: none;
+            visibility: visible;
+        }
+
+        .navbar_visible & {
+            transform: translateX(-100%);
+            transition-delay: 0s;
+            visibility: visible;
+
+            @include breakpoint-up(lg) {
+                transform: none;
+            }
+        }
+    }
+
+    &__inner {
+        padding: 3em 1.375em 1.25em;
+
+        @include breakpoint-up(lg) {
+            @include container();
+            
+            align-items: center;
+            display: flex;
+            padding-bottom: 0;
+            padding-top: 0;
+        }
+    }
+
+    &__menu-list {
+        @include breakpoint-up(lg) {
+            display: flex;
+        }
+    }
+
+    &__menu-item {
+        &:not(:first-child) {
+            border-top: 1px solid rgba($color-white, 0.15);
+
+            @include breakpoint-up(lg) {
+                border-top: 0;
+            }
+        }
+    }
+
+    &__close-btn {
+        left: 0.75em;
+        position: absolute;
+        top: 0.25em;
+
+        margin-bottom: 0.4em;
+        padding: 0;
+
+        color: $color-white;
+        font-size: 1.5rem;
+
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+
+        transition: color 0.2s linear;
+
+        @include breakpoint-up(lg) {
+            display: none;
+        }
+
+        &:hover {
+            color: $color-secondary;
+        }
+    }
+
+    &__search {
+        margin-top: 1em;
+
+        @include breakpoint-up(lg) {
+            align-self: stretch;
+            margin-left: 0.3125em;
+            margin-top: 0;
+        }
+    }
+
+    &__lang-menu {
+        margin-top: 0.75em;
+
+        @include breakpoint-up(lg) {
+            align-self: stretch;
+            display: block;
+            margin-top: 0;
+        }
+    }
+
+    &__order-btn {
+        margin-top: 1.5em;
+        width: 100%;
+
+        @include breakpoint-up(lg) {
+            margin-left: auto;
+            margin-top: 0;
+            width: auto;
+        }
+    }
+
+    // BEM modifiers
+    // TODO: add code
+}

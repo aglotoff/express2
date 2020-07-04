@@ -5,19 +5,23 @@
 @import "base";
 
 // Third-party imports
-// TODO: add code here
+@import "../../node_modules/material-design-iconic-font/scss/material-design-iconic-font";
 
-// Common imports
-@import "../blocks/common/page/page";
-@import "../blocks/common/header/header";
-@import "../blocks/common/top-banner/top-banner";
-@import "../blocks/common/logo/logo";
-@import "../blocks/common/top-contacts/top-contacts";
-@import "../blocks/common/top-social/top-social";
-@import "../blocks/common/navbar/navbar";
-@import "../blocks/common/main-menu/main-menu";
-@import "../blocks/common/header-search/header-search";
-@import "../blocks/common/input/input";
-@import "../blocks/common/lang-menu/lang-menu";
+// Page block
+@import "../blocks/layout/page/page";
+
+// Common block imports
 @import "../blocks/common/btn/btn";
-@import "../blocks/common/skip-link/skip-link";
+@import "../blocks/common/input/input";
+
+// Layout block imports
+@import "../blocks/layout/header/header";
+@import "../blocks/layout/logo/logo";
+@import "../blocks/layout/navbar/navbar";
+@import "../blocks/layout/navbar-item/navbar-item";
+@import "../blocks/layout/navbar-search/navbar-search";
+@import "../blocks/layout/navbar-submenu/navbar-submenu";
+@import "../blocks/layout/skip-link/skip-link";
+@import "../blocks/layout/top-banner/top-banner";
+@import "../blocks/layout/top-contacts/top-contacts";
+@import "../blocks/layout/top-social/top-social";

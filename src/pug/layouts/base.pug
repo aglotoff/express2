@@ -1,15 +1,15 @@
-include ../../blocks/common/header/header.pug
-include ../../blocks/common/top-banner/top-banner.pug
-include ../../blocks/common/logo/logo.pug
-include ../../blocks/common/top-contacts/top-contacts.pug
-include ../../blocks/common/top-social/top-social.pug
-include ../../blocks/common/icon/icon.pug
-include ../../blocks/common/navbar/navbar.pug
-include ../../blocks/common/main-menu/main-menu.pug
-include ../../blocks/common/header-search/header-search.pug
-include ../../blocks/common/input/input.pug
-include ../../blocks/common/lang-menu/lang-menu.pug
+//- Common block imports
 include ../../blocks/common/btn/btn.pug
+include ../../blocks/common/input/input.pug
+include ../../blocks/layout/header/header.pug
+include ../../blocks/layout/logo/logo.pug
+include ../../blocks/layout/navbar/navbar.pug
+include ../../blocks/layout/navbar-item/navbar-item.pug
+include ../../blocks/layout/navbar-search/navbar-search.pug
+include ../../blocks/layout/navbar-submenu/navbar-submenu.pug
+include ../../blocks/layout/top-banner/top-banner.pug
+include ../../blocks/layout/top-contacts/top-contacts.pug
+include ../../blocks/layout/top-social/top-social.pug
 
 doctype html
 html(lang="en")
@@ -23,8 +23,7 @@ html(lang="en")
         else
             title #{data.siteTitle} &#8211; #{data.siteTagline}
 
-        link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Raleway:500,800%7CRoboto")
-        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css")
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Raleway:500,800%7CRoboto:400")
         link(rel="stylesheet", href=`assets/css/style.css?v=${data.version}`)
     body.page
         a(href="#content").skip-link.page__skip-link Skip to content

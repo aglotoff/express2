@@ -1,0 +1,18 @@
+//-
+    name: navbar-submenu
+    description: Markup for the submenu block.
+    arguments:
+        - {object} props - Block properties.
+        - {object[]} props.items - Menu items.
+        - {string} props.items[].title - Item title.
+        - {string} props.items[].url - Item URL.
+        - {string} props.items[].lang - Optional language attribute.
+
+mixin navbar-submenu(props = {})
+    ul.navbar-submenu&attributes(attributes)
+        each item in props.items
+            li.navbar-submenu__item
+                a(
+                    href=item.url
+                    lang=item.lang
+                ).navbar-submenu__link= item.title

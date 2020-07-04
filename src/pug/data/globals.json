@@ -84,14 +84,14 @@
 
     "langMenu": [{
         "url": "javascript:void(0);",
-        "text": "English (EN)"
+        "title": "English (EN)"
     }, {
         "url": "javascript:void(0);",
         "lang": "de",
-        "text": "Deutsch (DE)"
+        "title": "Deutsch (DE)"
     }, {
         "url": "javascript:void(0);",
         "lang": "fr",
-        "text": "Français (FR)"
+        "title": "Français (FR)"
     }]
 }

@@ -10,8 +10,8 @@ import * as FocusUtility from './util/focus';
 import * as LazyLoader from './util/lazy-loader';
 
 // Block imports
-import * as Header from '../blocks/common/header';
-import * as TopBanner from '../blocks/common/top-banner';
+import * as Header from '../blocks/layout/header';
+import * as TopBanner from '../blocks/layout/top-banner';
 
 svg4everybody();
 
@@ -20,5 +20,5 @@ window.focusTrap = focusTrap;
 FocusUtility.init();
 LazyLoader.init();
 
-Header.initBlock();
-TopBanner.initBlock();
+Header.init();
+TopBanner.init();

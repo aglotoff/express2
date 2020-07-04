@@ -12,21 +12,18 @@
 //   `gulp lint:css`
 //   `gulp build:assets`
 //   `gulp build:html`
-//   `gulp build:icons`
 //   `gulp build:img`
 //   `gulp build:js`
 //   `gulp watch`
 //   `gulp watch:css`
 //   `gulp watch:assets`
 //   `gulp watch:html`
-//   `gulp watch:icons`
 //   `gulp watch:img`
 //   `gulp watch:js`
 //   `gulp clean`
 //   `gulp clean:css`
 //   `gulp clean:assets`
 //   `gulp clean:html`
-//   `gulp clean:icons`
 //   `gulp clean:img`
 //   `gulp clean:js`
 //
@@ -94,7 +91,6 @@ gulp.task('clean', gulp.parallel(
     'clean:css',
     'clean:assets',
     'clean:html',
-    'clean:icons',
     'clean:img',
     'clean:js'
 ));
@@ -107,12 +103,11 @@ gulp.task('build', gulp.series(
     'clean',
     gulp.parallel(
         gulp.series(
-            'build:icons',
             'lint:css',
-            'build:css',
-            'build:img'
+            'build:css'
         ),
         'build:assets',
+        'build:img',
         'build:html',
         'build:js'
     )
@@ -126,7 +121,6 @@ gulp.task('watch', gulp.parallel(
     'watch:css',
     'watch:assets',
     'watch:html',
-    'watch:icons',
     'watch:img',
     'watch:js'
 ));

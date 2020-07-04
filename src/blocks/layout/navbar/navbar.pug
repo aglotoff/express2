@@ -1,0 +1,47 @@
+//-
+    name: navbar
+    description: Markup for the navbar block.
+    arguments:
+        - {object} props - Block properties.
+        - {object[]} props.mainMenu - Main menu items.
+        - {object[]} props.langMenu - Language menu items.
+
+mixin navbar(props)
+    .navbar&attributes(attributes)
+        .navbar__dimmer(aria-hidden="true")
+
+        .navbar__container
+            .navbar__inner
+                nav.navbar__menu
+                    ul.navbar__menu-list
+                        each item, i in props.mainMenu
+                            +navbar-item({
+                                isListItem: true,
+                                title: item.title,
+                                hasDropdown: !!item.submenu,
+                                isFirstItem: i === 0,
+                                url: item.url,
+                            }).navbar__menu-item
+                                if item.submenu
+                                    +navbar-submenu({ items: item.submenu })
+
+                +navbar-item({
+                    icon: 'search',
+                    title: 'Search',
+                    hasDropdown: true,
+                    desktopDropdown: true,
+                }).navbar__search
+                    +navbar-search()
+
+                +navbar-item({
+                    icon: 'globe-alt',
+                    title: 'Language',
+                    hasDropdown: true,
+                }).navbar__lang-menu
+                    +navbar-submenu({ items: props.langMenu })
+                
+                +btn({ url: 'javascript:void(0);' }).navbar__order-btn
+                    | Request a Rate
+
+                button.navbar__close-btn(aria-label="Close menu")
+                    i.zmdi.zmdi-close-circle-o(aria-hidden="true")

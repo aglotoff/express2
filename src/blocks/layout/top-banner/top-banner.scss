@@ -1,0 +1,155 @@
+/**
+ * Styles for the top banner block.
+ */
+.top-banner {
+    // Selector styles
+    display: table;
+    height: 100vh;
+    width: 100%;
+
+    background: {
+        color: $color-dusty-gray;
+        position: center;
+        size: cover;
+    }
+
+    // @media queries
+    // TODO: add code
+
+    // Pseudo-classes and pseudo-elements
+    // TODO: add code
+
+    // Nested selectors
+    // TODO: add code
+
+    // BEM elements
+    &__inner {
+        position: relative;
+
+        display: table-cell;
+        padding: 2.5em 0 3em;
+        vertical-align: middle;
+
+        @include breakpoint-up(md) {
+            padding-top: 3.75em;
+            padding-bottom: 5em;
+        }
+    }
+
+    &__content {
+        @include container();
+
+        color: $color-white;
+        text-align: center;
+
+        @include breakpoint-up(md) {
+            margin-top: 1.25em;
+        }
+
+        @include breakpoint-up(lg) {
+            margin-top: 2.5em;
+        }
+    }
+
+    &__title {
+        font-family: $font-family-title;
+        font-size: 1.75rem;
+        font-weight: $font-weight-extra-bold;
+        text-transform: uppercase;
+
+        @include breakpoint-up(sm) {
+            font-size: 2rem;
+        }
+
+        @include breakpoint-up(md) {
+            font-size: 2.5rem;
+        }
+
+        @include breakpoint-up(lg) {
+            font-size: 3rem;
+        }
+
+        &:after {
+            content: "";
+
+            display: block;
+            height: 0.0625em;
+            margin: 0.35em auto 0;
+            width: 2.5em;
+
+            background: $color-secondary;
+        }
+    }
+
+    &__text {
+        margin: 1.5em auto 0;
+        max-width: 36em;
+
+        line-height: 1.875;
+
+        @include breakpoint-up(md) {
+            margin-top: 3em;
+        }
+    }
+
+    &__scroll {
+        display: block;
+        padding: 0 0.2em;
+
+        bottom: 0.1em;
+        position: absolute;
+        left: 50%;
+
+        color: $color-white;
+        font-size: 2.5rem;
+        line-height: 1;
+
+        transform: translateX(-50%);
+        transition: color 0.2s linear;
+
+        @include breakpoint-up(md) {
+            font-size: 3.75rem;
+        }
+
+        &:hover {
+            color: $color-secondary;
+        }
+
+        .focus-utility &:focus {
+            outline: 2px solid $color-secondary;
+        }
+        
+        &_animated {
+            animation: scroll 2.5s infinite;
+        }
+    }
+
+    // BEM modifiers
+    // TODO: add code
+}
+
+@keyframes scroll {
+    0% {
+        transform: translate(-50%, 0);
+    }
+
+    60% {
+        transform: translate(-50%, 0);
+    }
+
+    70% {
+        transform: translate(-50%, 0.15em);
+    }
+
+    80% {
+        transform: translate(-50%, 0);
+    }
+
+    90% {
+        transform: translate(-50%, 0.15em);
+    }
+
+    100% {
+        transform: translate(-50%, 0);
+    }
+}

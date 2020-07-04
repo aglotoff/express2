@@ -1,0 +1,28 @@
+/**
+ * Styles for the logo block.
+ */
+.logo {
+    // Selector styles
+    display: block;
+    padding: 0.5em 0;
+
+    // @media queries
+    // TODO: add code
+
+    // Pseudo-classes and pseudo-elements
+    .focus-utility &:focus {
+        outline: 2px solid $color-secondary;
+    }
+
+    // Nested selectors
+    // TODO: add code
+
+    // BEM elements
+    &__img {
+        display: block;
+        width: 100%;
+    }
+
+    // BEM modifiers
+    // TODO: add code
+}
