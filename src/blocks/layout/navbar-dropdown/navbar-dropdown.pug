@@ -1,0 +1,37 @@
+//-
+    name: navbar-dropdown
+    description: Markup for the navigation bar dropdown block.
+    arguments:
+        - {object} props - Block properties.
+        - {string} props.title - Button title.
+        - {string} props.icon - Optional button icon.
+        - {boolean} props.desktopOnly - Do not hide content on mobile screens.
+        - {boolean} props.isFirstItem - Is this the first navbar item?
+        - {boolean} props.isLastItem - Is this the last navbar item?
+        - {boolean} props.isListItem - Is the dropdown itself a list item?
+
+mixin navbar-dropdown(props = {})
+    - const tag = props.isListItem ? 'li' : 'div';
+    #{tag}(class={
+        'navbar-dropdown': true,
+        'navbar-dropdown_desktop-only': !!props.desktopOnly,
+        'navbar-dropdown_last': !!props.isLastItem,
+        'navbar-item': true,
+        'navbar-item_first': !!props.isFirstItem,
+    })&attributes(attributes)
+        button.navbar-dropdown__toggle.navbar-item__link(
+            aria-haspopup="true"
+            aria-expanded="false"
+            title=props.icon && props.title
+        )
+            if props.icon
+                span.navbar-item__icon(aria-hidden="true")
+                    i.zmdi(class=`zmdi-${props.icon}`)
+            span.navbar-item__title= props.title
+            span.navbar-dropdown__arrow(aria-hidden="true")
+                i.zmdi.zmdi-chevron-down
+        
+        .navbar-dropdown__popup
+            .navbar-dropdown__popup-inner
+                if block
+                    block

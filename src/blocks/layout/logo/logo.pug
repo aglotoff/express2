@@ -4,14 +4,14 @@
     arguments:
         - {object} props - Block properties.
         - {string} props.img - Logo image.
-        - {string} props.text - Logo alt text.
+        - {string} props.alt - Logo alt text.
         - {boolean} props.isHeading - Is this logo an H1 heading?
 
 mixin logo(props = {})
     if props.isHeading
         h1.logo&attributes(attributes)
             img(src=props.img, alt="").logo__img
-            span.logo__text= props.text
+            span.logo__text= props.alt
     else
         a(href=".").logo&attributes(attributes)
-            img(src=props.img, alt=props.text).logo__img
+            img(src=props.img, alt=props.alt).logo__img

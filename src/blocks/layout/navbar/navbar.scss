@@ -1,5 +1,5 @@
 /**
- * Styles for the navbar block.
+ * Styles for the navigation bar block.
  */
 .navbar {
     // Selector styles
@@ -86,13 +86,16 @@
     &__inner {
         padding: 3em 1.375em 1.25em;
 
-        @include breakpoint-up(lg) {
-            @include container();
-            
+        @include breakpoint-up(lg) {          
             align-items: center;
             display: flex;
-            padding-bottom: 0;
-            padding-top: 0;
+            margin: 0 auto;
+            padding: 0 $gutter;
+            width: $container-lg;
+        }
+    
+        @include breakpoint-up(xl) {
+            width: $container-xl;
         }
     }
 
@@ -135,6 +138,10 @@
 
         &:hover {
             color: $color-secondary;
+        }
+
+        .focus-utility &:focus {
+            outline: 2px solid $color-secondary;
         }
     }
 

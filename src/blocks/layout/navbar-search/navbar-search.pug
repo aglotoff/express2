@@ -1,9 +1,9 @@
 //-
     name: navbar-search
-    description: Markup for the navbar search block.
+    description: Markup for the navigation bar search block.
 
 mixin navbar-search()
-    form(method="GET" action="").navbar-search&attributes(attributes)
+    form(method="GET" action="#").navbar-search&attributes(attributes)
         +input(
             type="text"
             name="s"

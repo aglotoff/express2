@@ -88,6 +88,10 @@
         @include breakpoint-up(lg) {
             display: none;
         }
+
+        .focus-utility &:focus {
+            outline: 2px solid $color-secondary;
+        }
     }
 
     // BEM modifiers

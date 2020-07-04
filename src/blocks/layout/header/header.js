@@ -83,9 +83,7 @@ const handleWindowResize = debounce(function () {
 
         handleWindowScroll();
 
-        if (isDesktop) {
-            Navbar.hide();
-        }
+        Navbar.setDesktopMode(isDesktop);
     }
 }, RESIZE_INTERVAL);
 
@@ -175,12 +173,12 @@ export function init() {
 
     navbarToggle.addEventListener('click', handleNavbarToggleClick);
 
+    window.addEventListener('resize', handleWindowResize, false);
+    window.addEventListener('scroll', handleWindowScroll, false);
+
     // Process initial screen size and position.
     handleWindowResize();
     handleWindowScroll();
-
-    window.addEventListener('resize', handleWindowResize, false);
-    window.addEventListener('scroll', handleWindowScroll, false);
 
     return true;
 }

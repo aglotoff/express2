@@ -1,9 +1,9 @@
 /**
- * Styles for the navbar item block.
+ * Styles for the navigation bar item block.
  */
 .navbar-item {
     // Selector styles
-    position: relative;
+    // TODO: add code
 
     // @media queries
     // TODO: add code
@@ -27,26 +27,18 @@
         text-decoration: none;
         text-transform: uppercase;
 
-        background: transparent;
-        border: 0;
-        cursor: pointer;
-
         transition: color 0.2s linear;
 
         &:hover {
             color: $color-secondary;
         }
 
-        .navbar-item_desktop-dropdown > & {
-            display: none;
+        .focus-utility &:focus {
+            box-shadow: 0 0 0 2px $color-secondary;
 
             @include breakpoint-up(lg) {
-                display: block;
+                box-shadow: inset 0 0 0 2px $color-secondary;
             }
-        }
-
-        .focus-utility &:focus {
-            box-shadow: inset 0 0 0 2px $color-secondary;
         }
     }
 
@@ -88,75 +80,7 @@
         }
     }
 
-    &__arrow {
-        right: 0;
-        position: absolute;
-        top: 0.4em;
-
-        font-size: 1.25rem;
-
-        @include breakpoint-up(lg) {
-            display: none;
-        }
-
-        .navbar-item_expanded & {
-            transform: rotate(-180deg);
-        }
-    }
-
-    &__popup {
-        display: none;
-        padding-bottom: 0.625em;
-
-        @include breakpoint-up(lg) {
-            left: 0;
-            position: absolute;
-            top: 100%;
-
-            display: block;
-            min-width: 16.875em;
-            padding-bottom: 0;
-            padding-top: 0.3125em;
-
-            opacity: 0;
-            visibility: hidden;
-
-            transition: opacity 0.2s ease-out,
-                        visibility 0.2s step-start 0.2s;
-        }
-
-        .navbar-item_desktop-dropdown > & {
-            display: block;
-        }
-
-        .navbar-item_expanded > & {
-            display: block;
-        }
-
-        .navbar-item_expanded > &,
-        .navbar-item:hover > & {
-            @include breakpoint-up(lg) {
-                opacity: 1;
-
-                transition-delay: 0s;
-                visibility: visible;
-            }
-        }
-    }
-
-    &__popup-inner {
-        @include breakpoint-up(lg) {
-            padding: 0.625em;
-
-            background: $color-chathams-blue;
-        }
-    }
-
     // BEM modifiers
-    &_has-dropdown {
-        position: relative;
-    }
-
     &_first {
         .navbar-item__title {
             @include breakpoint-up(lg) {

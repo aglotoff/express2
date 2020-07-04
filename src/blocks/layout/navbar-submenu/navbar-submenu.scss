@@ -1,9 +1,10 @@
 /**
- * Styles for the navbar submenu block.
+ * Styles for the navigation bar submenu block.
  */
 .navbar-submenu {
     // Selector styles
     padding-left: 1.25em;
+    padding-right: 2px;
 
     // @media queries
     @include breakpoint-up(lg) {

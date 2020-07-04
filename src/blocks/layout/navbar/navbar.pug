@@ -1,6 +1,6 @@
 //-
     name: navbar
-    description: Markup for the navbar block.
+    description: Markup for the navigation bar block.
     arguments:
         - {object} props - Block properties.
         - {object[]} props.mainMenu - Main menu items.
@@ -10,33 +10,42 @@ mixin navbar(props)
     .navbar&attributes(attributes)
         .navbar__dimmer(aria-hidden="true")
 
-        .navbar__container
+        .navbar__container(tabindex="-1")
             .navbar__inner
                 nav.navbar__menu
                     ul.navbar__menu-list
                         each item, i in props.mainMenu
-                            +navbar-item({
-                                isListItem: true,
-                                title: item.title,
-                                hasDropdown: !!item.submenu,
-                                isFirstItem: i === 0,
-                                url: item.url,
-                            }).navbar__menu-item
-                                if item.submenu
+                            if item.submenu
+                                +navbar-dropdown({
+                                    isListItem: true,
+                                    title: item.title,
+                                    isFirstItem: i === 0,
+                                }).navbar__menu-item
                                     +navbar-submenu({ items: item.submenu })
-
-                +navbar-item({
+                            else
+                                li.navbar-item(
+                                    class=(i === 0) && "navbar-item_first"
+                                )
+                                    a(href=item.url).navbar-item__link
+                                        if item.icon
+                                            span.navbar-item__icon(
+                                                aria-hidden="true"
+                                            )
+                                                i.zmdi(
+                                                    class=`zmdi-${item.icon}`
+                                                )
+                                        span.navbar-item__title= item.title
+                +navbar-dropdown({
                     icon: 'search',
                     title: 'Search',
-                    hasDropdown: true,
-                    desktopDropdown: true,
+                    desktopOnly: true,
                 }).navbar__search
                     +navbar-search()
 
-                +navbar-item({
+                +navbar-dropdown({
                     icon: 'globe-alt',
                     title: 'Language',
-                    hasDropdown: true,
+                    isLastItem: true,
                 }).navbar__lang-menu
                     +navbar-submenu({ items: props.langMenu })
                 
