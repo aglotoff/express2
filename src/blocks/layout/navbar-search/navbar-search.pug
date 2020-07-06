@@ -4,8 +4,8 @@
 
 mixin navbar-search()
     form(method="GET" action="#").navbar-search&attributes(attributes)
-        +input(
+        input(
             type="text"
             name="s"
             placeholder="Enter your keyword..."
-        )
+        ).input.input_theme_alt

@@ -4,6 +4,10 @@
     arguments:
         - {object} props - Block properties.
         - {object[]} props.mainMenu - Main menu items.
+        - {string} props.mainMenu[].title - Main menu item title.
+        - {string} props.mainMenu[].icon - Optional mein menu item icon.
+        - {string} props.mainMenu[].url - Main menu item target URL.
+        - {object[]} props.mainMenu[].submenu - Main menu item submenu.
         - {object[]} props.langMenu - Language menu items.
 
 mixin navbar(props)
@@ -49,8 +53,9 @@ mixin navbar(props)
                 }).navbar__lang-menu
                     +navbar-submenu({ items: props.langMenu })
                 
-                +btn({ url: 'javascript:void(0);' }).navbar__order-btn
-                    | Request a Rate
+                +btn({
+                    url: 'javascript:void(0);'
+                }).navbar__order-btn Request a Rate
 
                 button.navbar__close-btn(aria-label="Close menu")
                     i.zmdi.zmdi-close-circle-o(aria-hidden="true")

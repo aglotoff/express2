@@ -1,0 +1,25 @@
+//-
+    name: social
+    description: Markup for the social links block.
+    arguments:
+        - {object} props - Block properties.
+        - {object[]} props.items - List of social media links.
+        - {string} props.items[].icon - Name of the social media icon.
+        - {string} props.items[].url - URL of the social media link.
+        - {string} props.items[].label - Link label for accessibility purposes.
+        - {string} props.theme - Appearance theme ('default' by default)
+        - {string} props.size - Icons size ('sm' or 'lg')
+
+mixin social(props = {})
+    ul(class={
+        social: true,
+        ['social_theme_' + (props.theme || 'default')]: true,
+        ['social_size_' + (props.size || 'sm')]: true,
+    })&attributes(attributes)
+        each item in props.items
+            li.social__item
+                a(
+                    href=item.url
+                    aria-label=item.label
+                ).social__link
+                    i(class=`zmdi zmdi-${item.icon}`, aria-hidden="true")

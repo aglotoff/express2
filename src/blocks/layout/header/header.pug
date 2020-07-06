@@ -26,7 +26,11 @@ mixin header(props = {})
 
                 +top-contacts(props.contacts).header__contacts
 
-                +top-social(props.social).header__social
+                +social({
+                    items: props.social,
+                    theme: 'default',
+                    size: 'lg',
+                }).header__social
 
                 button(
                     aria-expanded="false"
