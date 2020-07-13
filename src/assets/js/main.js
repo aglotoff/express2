@@ -1,5 +1,5 @@
 // Polyfill imports
-import 'promise-polyfill/src/polyfill';
+import 'core-js/features/promise';
 
 // Third-party imports
 import * as bodyScrollLock from 'body-scroll-lock';
@@ -11,8 +11,8 @@ import * as FocusUtility from './util/focus';
 import * as LazyLoader from './util/lazy-loader';
 
 // Block imports
-import * as Header from '../blocks/layout/header';
-import * as TopBanner from '../blocks/layout/top-banner';
+import * as Header from '../../blocks/layout/header';
+import * as TopBanner from '../../blocks/layout/top-banner';
 
 svg4everybody();
 

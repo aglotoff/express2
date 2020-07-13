@@ -3,8 +3,8 @@
  * @author Andrey Glotov
  */
 
-import { scrollTo } from '../../../js/util/dom-helpers';
-import { throttle } from '../../../js/util/helpers';
+import { scrollTo } from '../../../assets/js/util/dom-helpers';
+import { throttle } from '../../../assets/js/util/helpers';
 
 // -------------------------- BEGIN MODULE VARIABLES --------------------------
 
@@ -23,11 +23,11 @@ const SELECTOR = {
     SCROLL: `.${BLOCK_NAME}__scroll`,
 };
 
-const SCROLL_DURATION = 300;    // Scroll-down animation duration, ms.
-const SCROLL_INTERVAL = 200;    // Window scroll event throttling interval, ms.
+const SCROLL_DURATION = 300; // Scroll-down animation duration, ms.
+const SCROLL_INTERVAL = 200; // Window scroll event throttling interval, ms.
 
 // Cache HTML elements
-const elements = {};    
+const elements = {};
 
 // --------------------------- END MODULE VARIABLES ---------------------------
 
@@ -47,7 +47,7 @@ const elements = {};
 
 /**
  * Handle click on the scroll-down button.
- * 
+ *
  * @param {MouseEvent} e The event object.
  */
 function handleScrollClick(e) {
@@ -70,7 +70,7 @@ function handleScrollClick(e) {
 /**
  * Disable scroll button animation when the banner gets out of the viewport.
  */
-const handleWindowScroll = throttle(function () {
+const handleWindowScroll = throttle(() => {
     const { bottom } = elements.banner.getBoundingClientRect();
     if (bottom <= 0) {
         elements.scrollBtn.classList.remove(CLASSNAME.SCROLL_ANIMATED);
@@ -92,7 +92,7 @@ export function init() {
     if (banner == null) {
         return false;
     }
-    
+
     const scrollBtn = banner.querySelector(SELECTOR.SCROLL);
     scrollBtn.addEventListener('click', handleScrollClick, false);
 

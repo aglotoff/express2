@@ -1,6 +1,5 @@
 /**
  * @file Implementation of the {{blockTitle}} block.
- * @author Andrey Glotov
  */
 
 // -------------------------- BEGIN MODULE VARIABLES --------------------------
@@ -17,6 +16,9 @@ const CLASSNAME = {
 const SELECTOR = {
     BLOCK: `.${BLOCK_NAME}`,
 };
+
+// Map of DOM elements
+const elements = {};
 
 // TODO: add code here
 
@@ -47,7 +49,7 @@ const SELECTOR = {
  *
  * @return {boolean} true if the block is present on the page; false otherwise.
  */
-export function init() {
+export function initBlock() {
     const block = document.querySelector(SELECTOR.BLOCK);
     if (block == null) {
         return false;

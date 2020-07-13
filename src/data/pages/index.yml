@@ -1,0 +1,11 @@
+
+isHomepage: true,
+    
+header:
+    # Display banner at the top of the page
+    banner:
+        title: "Top logistics services provider"
+        text: >-
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+        bg: "assets/img/top-banner-bg.jpg"

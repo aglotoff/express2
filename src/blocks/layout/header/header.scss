@@ -68,7 +68,12 @@
     }
 
     &__social {
-        margin-left: 1em;
+        display: none;
+
+        @include breakpoint-up(lg) {
+            display: block;
+            margin-left: 1em;
+        }
 
         @include breakpoint-up(xl) {
             margin-left: 1.875em;

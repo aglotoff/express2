@@ -4,8 +4,8 @@
  */
 
 // Utility Imports
-import { forceReflow } from '../../../js/util/dom-helpers';
-import { debounce, throttle } from '../../../js/util/helpers';
+import { forceReflow } from '../../../assets/js/util/dom-helpers';
+import { debounce, throttle } from '../../../assets/js/util/helpers';
 
 // Block Imports
 import * as Navbar from '../navbar';
@@ -31,9 +31,9 @@ const SELECTOR = {
     NAVBAR_TOGGLE: `.${BLOCK_NAME}__navbar-toggle`,
 };
 
-const RESIZE_INTERVAL = 200;    // Resize event debounce interval, in ms
-const SCROLL_INTERVAL = 200;    // Scroll event throttling interval, in ms
-const DESKTOP_MEDIA = '(min-width: 62em)';  // Desktop breakpoint
+const RESIZE_INTERVAL = 200; // Resize event debounce interval, in ms
+const SCROLL_INTERVAL = 200; // Scroll event throttling interval, in ms
+const DESKTOP_MEDIA = '(min-width: 62em)'; // Desktop breakpoint
 
 // DOM elements map
 const elements = {};
@@ -49,7 +49,7 @@ const SCROLL_STATES = {
 let isDesktop = false;
 
 // Current header scroll state
-let scrollState =  SCROLL_STATES.NORMAL;
+let scrollState = SCROLL_STATES.NORMAL;
 
 // --------------------------- END MODULE VARIABLES ---------------------------
 
@@ -77,7 +77,7 @@ function handleNavbarToggleClick() {
 /**
  * Handle the window resize event.
  */
-const handleWindowResize = debounce(function () {
+const handleWindowResize = debounce(() => {
     if (window.matchMedia(DESKTOP_MEDIA).matches !== isDesktop) {
         isDesktop = !isDesktop;
 
@@ -91,7 +91,7 @@ const handleWindowResize = debounce(function () {
  * Add or remove header classes basd on the current scroll offset to create an
  * animated sticky header effect.
  */
-const handleWindowScroll = throttle(function () {
+const handleWindowScroll = throttle(() => {
     // Determine height and offset of the "sticky" part of the header.
     let barHeight;
     if (isDesktop) {
@@ -123,11 +123,11 @@ const handleWindowScroll = throttle(function () {
             header.classList.add(CLASSNAME.SCROLL);
             header.classList.add(CLASSNAME.HIDDEN);
             header.style.paddingBottom = `${barHeight}px`;
-   
+
             forceReflow(header);
 
             header.classList.add(CLASSNAME.ANIMATED);
-        } else {    // SCROLL_STATES.VISIBLE
+        } else { // SCROLL_STATES.VISIBLE
             if (scrollState === SCROLL_STATES.NORMAL) {
                 // Make sure the animation is played.
                 header.classList.add(CLASSNAME.SCROLL);
@@ -138,7 +138,7 @@ const handleWindowScroll = throttle(function () {
 
                 header.classList.add(CLASSNAME.ANIMATED);
             }
-            
+
             header.classList.remove(CLASSNAME.HIDDEN);
         }
 

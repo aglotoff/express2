@@ -3,13 +3,13 @@ const fs = require('fs');
 const minimist = require('minimist');
 
 /**
- * Read in an environment flag
+ * Read in the environment flag
  */
-const {env} = minimist(process.argv.slice(2), {
+const { env } = minimist(process.argv.slice(2), {
     string: 'env',
     default: { 
         env: process.env.NODE_ENV || 'development'
-    }
+    },
 });
 
 /**
@@ -31,49 +31,45 @@ module.exports = {
         src:  SRC,
         dest: DIST,
 
-        assets: {
-            src: `${SRC}/assets/**/*`,
+        static: {
+            src: `${SRC}/assets/static/**/*`,
             dest: `${DIST}/assets`,
-            watch: `${SRC}/assets/**/*`,
+            watch: `${SRC}/assets/static/**/*`,
             clean: [
                 `${DIST}/assets/**/*`,
                 `!${DIST}/assets/{css,img,js}/**/*`,
             ],
         },
+
         css: {
-            src: [ `${SRC}/sass/*.scss`, `!${SRC}/sass/_*.scss` ],
+            src: [ `${SRC}/assets/sass/*.scss`, `!${SRC}/assets/sass/_*.scss` ],
             dest: `${DIST}/assets/css`,
             lint: `${SRC}/**/*.scss`,
             watch: `${SRC}/**/*.scss`,
             clean: `${DIST}/assets/css/**/*.css{,.map}`,
         },
+
         html: {
-            src: `${SRC}/pug/pages/*.pug`,
-            globalData: `${SRC}/pug/data/globals.json`,
-            pageData: `${SRC}/pug/data/pages/**/*.json`,
-            pageDataDir: `${SRC}/pug/data/pages`,
-            pagesDir: `${SRC}/pug/pages/`,
+            src: `${SRC}/pages/*.pug`,
+            globalData: `${SRC}/data/globals.yml`,
+            pageData: `${SRC}/data/pages/**/*.yml`,
+            pageDataDir: `${SRC}/data/pages`,
+            pagesDir: `${SRC}/pages/`,
             dest: `${DIST}`,
             watch: `${SRC}/**/*.pug`,
             clean: `${DIST}/**/*.html`,
         },
-        icons: {
-            src: `${SRC}/icons/*.svg`,
-            dest: `${SRC}`,
-            watch: `${SRC}/icons/*.svg`,
-            clean: [
-                `${SRC}/img/icons.svg`,
-                `${SRC}/blocks/common/icon/icon.scss`
-            ],
-        },
+
         img: {
-            src: `${SRC}/img/**/*.{gif,jpg,jpeg,ico,png,svg}`,
+            src: `${SRC}/assets/img/**/*.{gif,jpg,jpeg,ico,png,svg}`,
             dest: `${DIST}/assets/img`,
-            watch: `${SRC}/img/**/*.{gif,jpg,jpeg,ico,png,svg}`,
+            watch: `${SRC}/assets/img/**/*.{gif,jpg,jpeg,ico,png,svg}`,
             clean: `${DIST}/assets/img/*.{gif,jpg,jpeg,ico,png,svg,webp}`,
+            webp: '**/*.{jpg,jpeg,png}',
         },
+
         js: {
-            src: `${SRC}/js/*.js`,
+            src: `${SRC}/assets/js/*.js`,
             dest: `${DIST}/assets/js`,
             lint: `${SRC}/**/*.js`,
             watch: `${SRC}/**/*.js`,
@@ -97,7 +93,9 @@ module.exports = {
         browserSync: {
             server: DIST
         },
+    
         beautify: JSON.parse(fs.readFileSync(`${CONFIG}/.jsbeautifyrc.json`)),
+        
         imagemin: {
             svgo: {
                 plugins: [
@@ -107,26 +105,34 @@ module.exports = {
                 ]
             },
         },
+
+        pug: {
+            pretty: true,
+        },
+
         pugInheritance: {
-            basedir: `${SRC}/pug`,
+            basedir: `${SRC}`,
             skip: 'node_modules',
         },
+
         sass: {
             outputStyle: 'expanded',
         },
+
         svgSprite: {
 			mode: {
 				symbol: {
 					sprite: '../img/icons.svg',
 					render: {
 						scss: {
-							dest: '../blocks/common/icon/icon.scss',
+							dest: '../../blocks/common/icon/icon.scss',
 							template: `${SRC}/blocks/common/icon/icon.mustache`,
 						}
 					}
 				}
 			}
-		},
+        },
+
         stylelint: {
             failAfterError: false,
             fix: true,
@@ -136,5 +142,7 @@ module.exports = {
             }],
             configFile: `${CONFIG}/.stylelintrc.json`,
         },
+
+        webpack: require('../config/webpack.config')({ mode: env }),
     },
 };

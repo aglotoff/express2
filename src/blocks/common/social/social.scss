@@ -3,18 +3,10 @@
  */
 .social {
     // Selector styles
-    display: none;
-
-    font-size: 1.375rem;
+    display: flex;
 
     // @media queries
-    @include breakpoint-up(lg) {
-        display: flex;
-    }
-
-    @include breakpoint-up(xl) {
-        font-size: 1.5rem;
-    }
+    // TODO: add code
 
     // Pseudo-classes and pseudo-elements
     // TODO: add code
@@ -33,10 +25,13 @@
         display: block;
         padding: 0.5em;
 
-        color: $color-primary;
         text-decoration: none;
 
         transition: color 0.2s linear;
+
+        .social_theme_default & {
+            color: $color-primary;
+        }
 
         &:hover {
             color: $color-secondary;
@@ -48,5 +43,11 @@
     }
 
     // BEM modifiers
-    // TODO: add code
+    &_size_lg {
+        font-size: 1.375rem;
+
+        @include breakpoint-up(xl) {
+            font-size: 1.5rem;
+        }
+    }
 }

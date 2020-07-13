@@ -10,19 +10,19 @@
 //   `gulp build`
 //   `gulp build:css`
 //   `gulp lint:css`
-//   `gulp build:assets`
+//   `gulp build:static`
 //   `gulp build:html`
 //   `gulp build:img`
 //   `gulp build:js`
 //   `gulp watch`
 //   `gulp watch:css`
-//   `gulp watch:assets`
+//   `gulp watch:static`
 //   `gulp watch:html`
 //   `gulp watch:img`
 //   `gulp watch:js`
 //   `gulp clean`
 //   `gulp clean:css`
-//   `gulp clean:assets`
+//   `gulp clean:static`
 //   `gulp clean:html`
 //   `gulp clean:img`
 //   `gulp clean:js`
@@ -64,24 +64,25 @@
 // imagemin-mozjpeg     : Imagemin plugin for mozjpeg
 // lazypipe             : Create immutable, lazily-initialized pipelines
 // minimist             : Parse argument options
-// require-dir          : Helper to require() directories
 // stylelint            : A mighty, modern CSS linter
 // stylelint-scss       : A collection of SCSS specific rules for stylelint
 // vinyl-named          : Give vinyl files arbitrary chunk names
 // webpack              : A module bundler
 // webpack-stream       : Run webpack as a stream
+// yaml                 : JavaScript parser and stringifier for YAML
 //
 // ----------------------------------------
 
 const browserSync = require('browser-sync');
 const gulp = require('gulp');
-const requireDir = require('require-dir');
 
 const config = require('./gulp/config');
 
-requireDir('./gulp/tasks', {recurse: true});
-
-global.isWatching = false;
+require('./gulp/tasks/css');
+require('./gulp/tasks/html');
+require('./gulp/tasks/img');
+require('./gulp/tasks/js');
+require('./gulp/tasks/static');
 
 // ----------------------------------------
 //   Task: Clean
@@ -89,7 +90,7 @@ global.isWatching = false;
 
 gulp.task('clean', gulp.parallel(
     'clean:css',
-    'clean:assets',
+    'clean:static',
     'clean:html',
     'clean:img',
     'clean:js'
@@ -104,10 +105,10 @@ gulp.task('build', gulp.series(
     gulp.parallel(
         gulp.series(
             'lint:css',
-            'build:css'
+            'build:css',
+            'build:img'
         ),
-        'build:assets',
-        'build:img',
+        'build:static',
         'build:html',
         'build:js'
     )
@@ -119,7 +120,7 @@ gulp.task('build', gulp.series(
 
 gulp.task('watch', gulp.parallel(
     'watch:css',
-    'watch:assets',
+    'watch:static',
     'watch:html',
     'watch:img',
     'watch:js'

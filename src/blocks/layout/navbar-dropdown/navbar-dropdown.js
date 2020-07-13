@@ -6,7 +6,7 @@
 import {
     detectTransitionEnd,
     forceReflow,
-} from '../../../js/util/dom-helpers';
+} from '../../../assets/js/util/dom-helpers';
 
 // -------------------------- BEGIN MODULE VARIABLES --------------------------
 
@@ -35,21 +35,21 @@ const SELECTOR = {
 export class NavbarDropdown {
     /**
      * Initialize the navbar dropdown block.
-     * 
+     *
      * @param {HTMLElement} root The root element of the block.
      */
     constructor(root) {
         const toggle = root.querySelector(SELECTOR.TOGGLE);
         const popup = root.querySelector(SELECTOR.POPUP);
 
-        this._elements = {
+        this.elements = {
             root,
             toggle,
             popup,
         };
 
-        this._expanded = false;
-        this._desktop = false;
+        this.expanded = false;
+        this.desktop = false;
 
         this.handleDocumentClick = this.handleDocumentClick.bind(this);
         this.handleKeyDown = this.handleKeyDown.bind(this);
@@ -70,13 +70,13 @@ export class NavbarDropdown {
 
     /**
      * Collapse the dropdown when the user presses Escape.
-     * 
+     *
      * @param {KeyboardEvent} event The event object.
      */
     handleKeyDown(event) {
         if ((event.key === 'Escape') || (event.keyCode === 27)) {
             this.collapse();
-            this._elements.toggle.focus();
+            this.elements.toggle.focus();
         }
     }
 
@@ -84,21 +84,21 @@ export class NavbarDropdown {
      * Collapse the dropdown when the user clicks or moves focus outside the
      * block.
      */
-    handleDocumentClick() {
-        const target = event.target;
+    handleDocumentClick(event) {
+        const { target } = event;
 
-        if ((target != document) && !this._elements.root.contains(target)) {
+        if ((target !== document) && !this.elements.root.contains(target)) {
             this.collapse();
         }
     }
 
     /**
      * Expand or collapse the dropdown when the user clicks on the button.
-     * 
+     *
      * @param {MouseEvent} event The event object.
      */
     handleToggleClick(event) {
-        if (this._expanded) {
+        if (this.expanded) {
             this.collapse();
         } else {
             this.expand();
@@ -127,14 +127,14 @@ export class NavbarDropdown {
 
     /**
      * Switch between mobile and desktop display modes.
-     * 
+     *
      * @param {boolean} desktopMode true to activate the desktop mode; false to
      *  activate the mobile mode.
      */
     setDesktopMode(desktopMode) {
-        const { root } = this._elements;
+        const { root } = this.elements;
 
-        if (this._desktop === desktopMode) {
+        if (this.desktop === desktopMode) {
             return;
         }
 
@@ -142,27 +142,27 @@ export class NavbarDropdown {
             root.addEventListener(
                 'mouseenter',
                 this.handleMouseEnter,
-                false
+                false,
             );
             root.addEventListener(
                 'mouseleave',
                 this.handleMouseLeave,
-                false
+                false,
             );
         } else {
             root.removeEventListener(
                 'mouseenter',
                 this.handleMouseEnter,
-                false
+                false,
             );
             root.removeEventListener(
                 'mouseleave',
                 this.handleMouseLeave,
-                false
+                false,
             );
         }
 
-        this._desktop = desktopMode;
+        this.desktop = desktopMode;
 
         this.collapse();
     }
@@ -171,23 +171,23 @@ export class NavbarDropdown {
      * Expand the dropdown.
      */
     expand() {
-        if (this._expanded) {
+        if (this.expanded) {
             return;
         }
 
-        const { toggle, popup, root } = this._elements;
+        const { toggle, popup, root } = this.elements;
 
         root.classList.add(CLASSNAME.EXPANDED);
 
-        if (!this._desktop) {
+        if (!this.desktop) {
             const popupHeight = popup.clientHeight;
-            
+
             popup.style.maxHeight = '0';
             forceReflow(popup);
 
-            popup.style.maxHeight = popupHeight + 'px';
+            popup.style.maxHeight = `${popupHeight}px`;
             detectTransitionEnd(popup).then(() => {
-                if (this._expanded) {
+                if (this.expanded) {
                     popup.style.maxHeight = '';
                 }
             });
@@ -200,28 +200,28 @@ export class NavbarDropdown {
 
         toggle.setAttribute('aria-expanded', 'true');
 
-        this._expanded = true;
+        this.expanded = true;
     }
 
     /**
      * Collapse the dropdown.
      */
     collapse() {
-        if (!this._expanded) {
+        if (!this.expanded) {
             return;
         }
 
-        const { toggle, popup, root } = this._elements;
+        const { toggle, popup, root } = this.elements;
 
-        if (!this._desktop) {
+        if (!this.desktop) {
             const popupHeight = popup.clientHeight;
-            
-            popup.style.maxHeight = popupHeight + 'px';
+
+            popup.style.maxHeight = `${popupHeight}px`;
             forceReflow(popup);
 
             popup.style.maxHeight = '0';
             detectTransitionEnd(popup).then(() => {
-                if (!this._expanded) {
+                if (!this.expanded) {
                     popup.style.maxHeight = '';
                     root.classList.remove(CLASSNAME.EXPANDED);
                 }
@@ -237,7 +237,7 @@ export class NavbarDropdown {
 
         toggle.setAttribute('aria-expanded', 'false');
 
-        this._expanded = false;
+        this.expanded = false;
     }
 
     // --------------------------- END PUBLIC METHODS -------------------------

@@ -26,9 +26,9 @@ const SELECTOR = {
     DROPDOWN: '.navbar-dropdown',
 };
 
-const elements = {};    // Cache for DOM elements.
-let dropdowns = [];     // Dropdown instances
-let trap = null;        // Focus Trap instance.
+const elements = {}; // Cache for DOM elements.
+let dropdowns = []; // Dropdown instances
+let trap = null; // Focus Trap instance.
 
 // --------------------------- END MODULE VARIABLES ---------------------------
 
@@ -39,7 +39,7 @@ let trap = null;        // Focus Trap instance.
  */
 function showMobileNavbar() {
     elements.navbar.classList.add(CLASSNAME.VISIBLE);
-    
+
     bodyScrollLock.disableBodyScroll(elements.container, {
         reserveScrollBarGap: true,
     });
@@ -89,7 +89,7 @@ export function init() {
 
     dropdowns = [].map.call(
         document.querySelectorAll(SELECTOR.DROPDOWN),
-        (elem) => new NavbarDropdown(elem)
+        (elem) => new NavbarDropdown(elem),
     );
 
     return true;
@@ -116,7 +116,7 @@ export function show() {
 
 /**
  * Switch between mobile and desktop display modes.
- * 
+ *
  * @param {boolean} desktopMode true to activate the desktop mode; false to
  *  activate the mobile mode.
  */
