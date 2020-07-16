@@ -9,7 +9,7 @@ isHomepage: false
 
 # Company logo (displayed in header)
 headerLogo:
-    img: "assets/img/logo.svg"
+    img: "img/logo.svg"
     alt: "Express - A Logistics Company"
 
 # Contact info (displayed in the header)

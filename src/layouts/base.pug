@@ -23,13 +23,13 @@ html(lang="en")
             title #{data.siteTitle} &#8211; #{data.siteTagline}
 
         link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Raleway:500,800%7CRoboto:400")
-        link(rel="stylesheet", href=`assets/css/style.css?v=${data.version}`)
+        link(rel="stylesheet", href=`css/style.css?v=${data.version}`)
 
-        link(rel="apple-touch-icon", sizes="180x180", href="assets/img/favicon/apple-touch-icon.png")
-        link(rel="icon" type="image/png", sizes="32x32", href="assets/img/favicon/favicon-32x32.png")
-        link(rel="icon" type="image/png", sizes="16x16", href="assets/img/favicon/favicon-16x16.png")
-        link(rel="manifest" href="assets/site.webmanifest")
-        meta(name="msapplication-config", content="assets/browserconfig.xml") 
+        link(rel="apple-touch-icon", sizes="180x180", href="img/favicon/apple-touch-icon.png")
+        link(rel="icon" type="image/png", sizes="32x32", href="img/favicon/favicon-32x32.png")
+        link(rel="icon" type="image/png", sizes="16x16", href="img/favicon/favicon-16x16.png")
+        link(rel="manifest" href="site.webmanifest")
+        meta(name="msapplication-config", content="browserconfig.xml") 
         meta(name="msapplication-TileColor", content="#da532c")
         meta(name="theme-color", content="#ffffff")
 
@@ -49,4 +49,4 @@ html(lang="en")
         block page
 
         block scripts
-            script(src=`assets/js/main.js?v=${data.version}`)
+            script(src=`js/main.js?v=${data.version}`)
