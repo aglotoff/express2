@@ -9,12 +9,14 @@
         - {string} props.items[].label - Link label for accessibility purposes.
         - {string} props.theme - Appearance theme ('default' by default)
         - {string} props.size - Icons size ('sm' or 'lg')
+        - {boolean} props.center - True to center icons horizontally.
 
 mixin social(props = {})
     ul(class={
         social: true,
         ['social_theme_' + (props.theme || 'default')]: true,
         ['social_size_' + (props.size || 'sm')]: true,
+        social_center: !!props.center,
     })&attributes(attributes)
         each item in props.items
             li.social__item

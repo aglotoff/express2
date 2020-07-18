@@ -1,0 +1,192 @@
+/**
+ * Styles for the footer block.
+ */
+.footer {
+    // Selector styles
+    // TODO: add code
+
+    // @media queries
+    // TODO: add code
+
+    // Pseudo-classes and pseudo-elements
+    // TODO: add code
+
+    // Nested selectors
+    // TODO: add code
+
+    // BEM elements
+    &__top {
+        background: $color-primary;
+    }
+
+    &__top-inner {
+        padding: 2.75em 0;
+
+        @media screen and (min-width: 40em) {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: -1em;
+            margin-right: -1em;
+        }
+
+        @media screen and (min-width: 75em) {
+            flex-wrap: nowrap;
+        }
+    }
+
+    &__section {
+        margin-bottom: 1.625em;
+
+        @media screen and (min-width: 40em) {
+            flex: 1 1 auto;
+            padding: 0 1em;
+            width: 50%;
+        }
+
+        @media screen and (min-width: 75em) {
+            width: 33.3333%;
+        }
+
+        &_wide {
+            @media screen and (min-width: 40em) {
+                order: 1;
+                width: 100%;
+            }
+
+            @media screen and (min-width: 75em) {
+                order: inherit;
+                width: 33.3333%;
+            }
+        }
+    }
+
+    &__section-title {
+        position: relative;
+
+        margin-bottom: 1em;
+        padding-left: 0.875em;
+
+        color: $color-white;
+        font-family: $font-family-title;
+        font-size: 1.125rem;
+        font-weight: $font-weight-extra-bold;
+        line-height: 2.6667;
+        text-transform: uppercase;
+
+        &::before {
+            content: "";
+
+            bottom: 0.875em;
+            left: 0;
+            position: absolute;
+            top: 0.875em;
+
+            border-left: 3px solid $color-secondary;
+        }
+    }
+
+    &__logo {
+        margin-bottom: 2em;
+        max-width: 14em;
+
+        @media screen and (min-width: 40em) {
+            max-width: 16.5em;
+        }
+    }
+
+    &__text {
+        color: rgba($color-white, 0.4);
+        font-size: 0.875rem;
+        line-height: 1.875;
+
+        @media screen and (min-width: 30em) {
+            font-size: 1rem;
+        }
+    }
+
+    &__menu {
+        font-size: 0.875rem;
+
+        columns: 2;
+        column-gap: 2em;
+
+        @media screen and (min-width: 30em) {
+            font-size: 1rem;
+        }
+
+        @media screen and (min-width: 40em) {
+            columns: 3;
+        }
+
+        @media screen and (min-width: 60em) {
+            columns: 4;
+        }
+
+        @media screen and (min-width: 75em) {
+            columns: 2;
+        }
+    }
+
+    &__menu-item {
+        margin-bottom: 0.325em;
+    }
+
+    &__menu-link {
+        display: block;
+        padding: 0.375em 0;
+
+        color: rgba($color-white, 0.4);
+        line-height: 1.25;
+        text-decoration: none;
+
+        &:hover {
+            color: rgba($color-white, 0.85);
+        }
+
+        .focus-utility &:focus {
+            outline: 2px solid $color-secondary;
+        }
+    }
+
+    &__subscribe-form {
+        margin-top: 1.75em;
+    }
+
+    &__bottom {
+        background: $color-blue-zodiac;
+    }
+
+    &__bottom-inner {
+        padding: 0.875em 0;
+
+        @media screen and (min-width: 40em) {
+            align-items: center;
+            display: flex;
+        }
+    }
+
+    &__copy {
+        display: block;
+
+        color: rgba($color-white, 0.4);
+        font-size: 0.875rem;
+        line-height: 1.75;
+        text-align: center;
+
+        @media screen and (min-width: 40em) {
+            text-align: left;
+        }
+    }
+
+    &__social {
+        margin-top: 1em;
+
+        @media screen and (min-width: 40em) {
+            margin-left: auto;
+            margin-top: 0;
+        }
+    }
+
+    // BEM modifiers
+    // TODO: add code
+}

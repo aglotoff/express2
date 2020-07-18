@@ -4,13 +4,19 @@
     arguments:
         - {object} props - Block properties.
         - {string} props.url - Target URL (optional).
+        - {string} props.theme - Appearance theme.
 
 mixin btn(props = {})
+    -
+        const btnClass = {
+            btn: true,
+            [`btn_theme_${props.theme || 'primary'}`]: true,
+        }
     if props.url
-        a(href=props.url).btn&attributes(attributes)
+        a(class=btnClass, href=props.url)&attributes(attributes)
             if block
                 block
     else
-        button.btn&attributes(attributes)
+        button(class=btnClass)&attributes(attributes)
             if block
                 block

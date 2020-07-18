@@ -4,9 +4,8 @@
 .btn {
     // Selector styles
     display: inline-block;
-    padding: 0.75em 1.5em;
+    padding: 0.75em 1.25em;
 
-    color: $color-white;
     font-family: $font-family-title;
     font-size: 0.875rem;
     font-weight: $font-weight-extra-bold;
@@ -15,21 +14,19 @@
     text-transform: uppercase;
     white-space: nowrap;
 
-    background: $color-secondary;
+    border-style: solid;
+    border-width: 1px 6px;
+    cursor: pointer;
 
-    transition: background-color 0.2s linear;
+    transition: border-color 0.2s linear,
+                background-color 0.2s linear,
+                color 0.2s linear;
 
     // @media queries
     // TODO: add code
 
     // Pseudo-classes and pseudo-elements
-    &:hover {
-        background: darken($color-secondary, 15%);
-    }
-
-    &:focus {
-        box-shadow: 0 0 0 0.3em rgba($color-secondary, 0.5);
-    }
+    
 
     // Nested selectors
     // TODO: add code
@@ -38,5 +35,54 @@
     // TODO: add code
 
     // BEM modifiers
-    // TODO: add code
+    &_theme_default {
+        color: $color-white;
+
+        background: transparent;
+        border-color: $color-primary;
+
+        &:hover {
+            background: $color-primary;
+        }
+    
+        &:focus {
+            box-shadow: 0 0 0 0.3em rgba($color-primary, 0.5);
+        }
+    }
+
+    &_theme_warning {
+        color: $color-white;
+
+        background: $color-secondary;
+        border-color: $color-secondary;
+
+        &:hover {
+            background: darken($color-secondary, 15%);
+            border-color: darken($color-secondary, 15%);
+        }
+    
+        &:focus {
+            box-shadow: 0 0 0 0.3em rgba($color-secondary, 0.5);
+        }
+    }
+
+    &_theme_light {
+        color: rgba($color-white, 0.5);
+
+        background: transparent;
+        border-color: rgba($color-white, 0.4);
+
+        &:hover {
+            color: rgba($color-white, 0.85);
+    
+            border-color: rgba($color-white, 0.85);
+        }
+    
+        &:focus {
+            color: rgba($color-white, 0.85);
+    
+            border-color: rgba($color-white, 0.85);
+            box-shadow: 0 0 0 0.3em rgba($color-white, 0.4);
+        }
+    }
 }

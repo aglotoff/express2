@@ -1,6 +1,7 @@
 //- Common block imports
 include ../blocks/common/btn/btn.pug
 include ../blocks/common/social/social.pug
+include ../blocks/layout/footer/footer.pug
 include ../blocks/layout/header/header.pug
 include ../blocks/layout/logo/logo.pug
 include ../blocks/layout/navbar/navbar.pug
@@ -47,6 +48,8 @@ html(lang="en")
         })
 
         block page
+
+        +footer(Object.assign({}, data.footer, { social: data.social }))
 
         block scripts
             script(src=`js/main.js?v=${data.version}`)

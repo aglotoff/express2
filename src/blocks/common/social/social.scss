@@ -33,8 +33,16 @@
             color: $color-primary;
         }
 
-        &:hover {
+        .social_theme_light & {
+            color: rgba($color-white, 0.4);
+        }
+
+        .social_theme_default &:hover {
             color: $color-secondary;
+        }
+
+        .social_theme_light &:hover {
+            color: $color-white;
         }
 
         .focus-utility &:focus {
@@ -49,5 +57,9 @@
         @include breakpoint-up(xl) {
             font-size: 1.5rem;
         }
+    }
+
+    &_center {
+        justify-content: center;
     }
 }
