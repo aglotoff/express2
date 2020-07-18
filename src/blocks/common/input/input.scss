@@ -42,4 +42,8 @@
             border-color: rgba($color-white, 0.85);
         }
     }
+
+    .has-error > & {
+        border-color: $color-error;
+    }
 }

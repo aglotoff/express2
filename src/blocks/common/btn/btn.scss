@@ -45,7 +45,7 @@
             background: $color-primary;
         }
     
-        &:focus {
+        .focus-utility &:focus {
             box-shadow: 0 0 0 0.3em rgba($color-primary, 0.5);
         }
     }
@@ -61,7 +61,7 @@
             border-color: darken($color-secondary, 15%);
         }
     
-        &:focus {
+        .focus-utility &:focus {
             box-shadow: 0 0 0 0.3em rgba($color-secondary, 0.5);
         }
     }
@@ -78,7 +78,7 @@
             border-color: rgba($color-white, 0.85);
         }
     
-        &:focus {
+        .focus-utility &:focus {
             color: rgba($color-white, 0.85);
     
             border-color: rgba($color-white, 0.85);

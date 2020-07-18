@@ -51,7 +51,8 @@ mixin footer(props = {})
                                         aria-label="Email"
                                         type="email"
                                         placeholder="Enter your email"
-                                    ).input.input_theme_light
+                                        required
+                                    ).input.input_theme_light.form__input
                                 .form__field.form__field_wide
                                     +btn({
                                         theme: 'light',
