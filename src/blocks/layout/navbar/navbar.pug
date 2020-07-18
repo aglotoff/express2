@@ -54,7 +54,8 @@ mixin navbar(props)
                     +navbar-submenu({ items: props.langMenu })
                 
                 +btn({
-                    url: 'javascript:void(0);'
+                    url: 'javascript:void(0);',
+                    theme: 'warning',
                 }).navbar__order-btn Request a Rate
 
                 button.navbar__close-btn(aria-label="Close menu")

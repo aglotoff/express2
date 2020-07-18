@@ -31,6 +31,10 @@
         }
     }
 
+    &__inner {
+        @include container();
+    }
+
     // BEM modifiers
     // TODO: add code
 }

@@ -1,0 +1,43 @@
+/**
+ * Styles for the form block.
+ */
+.form {
+    // Selector styles
+    // TODO: add code
+
+    // @media queries
+    // TODO: add code
+
+    // Pseudo-classes and pseudo-elements
+    // TODO: add code
+
+    // Nested selectors
+    // TODO: add code
+
+    // BEM elements
+    &__fields {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -0.625em;
+    }
+
+    &__field {
+        flex: 0 0 auto;
+        padding: 0.625em;
+        width: 50%;
+
+        &_wide {
+            width: 100%;
+        }
+    }
+
+    &__error {
+        margin-top: 0.5em;
+
+        color: $color-error;
+        font-size: 0.875rem;
+    }
+
+    // BEM modifiers
+    // TODO: add code
+}

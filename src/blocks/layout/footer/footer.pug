@@ -1,0 +1,71 @@
+//-
+    name: footer
+    description: Markup for the site footer block.
+    arguments:
+        - {object} props - Block properties.
+        - {object} props.logo - Logo data.
+        - {string} props.about - Text for the About section.
+        - {object[]} props.menu - Items of the Useful Links menu.
+        - {string} props.menu[].url - Menu item URL.
+        - {string} props.menu[].title - Menu item title.
+        - {string} props.subscribe - Text for the Subscribe section.
+        - {string} props.copy - Copyright text.
+        - {object} props.social - Social links data.
+
+mixin footer(props = {})
+    footer.footer&attributes(attributes)
+        .footer__top
+            .page__inner
+                .footer__top-inner
+                    section.footer__section
+                        h2.footer__section-title About Our Company
+
+                        +logo({
+                            img: props.logo.img,
+                            alt: props.logo.alt,
+                            isHeading: false,
+                        }).footer__logo
+
+                        .footer__text !{props.about}
+
+                    section.footer__section.footer__section_wide
+                        h2.footer__section-title Useful Links
+
+                        ul.footer__menu
+                            each item in props.menu
+                                li.footer__menu-item
+                                    a(href=item.url).footer__menu-link= item.title
+
+                    section.footer__section
+                        h2.footer__section-title Newsletter Subscribe
+
+                        .footer__text !{props.subscribe}
+
+                        form(
+                            action="#",
+                            method="POST"
+                        ).form.footer__subscribe-form
+                            .form__fields
+                                .form__field.form__field_wide
+                                    input(
+                                        aria-label="Email"
+                                        type="email"
+                                        placeholder="Enter your email"
+                                        required
+                                    ).input.input_theme_light.form__input
+                                .form__field.form__field_wide
+                                    +btn({
+                                        theme: 'light',
+                                    })(type="submit") Subscribe
+
+        .footer__bottom
+            .page__inner
+                .footer__bottom-inner
+                    small.footer__copy !{props.copy}
+
+                    +social({
+                        items: props.social,
+                        theme: 'light',
+                        size: 'lg',
+                        center: true,
+                    }).footer__social

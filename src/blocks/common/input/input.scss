@@ -18,11 +18,7 @@
     // TODO: add code
 
     // Pseudo-classes and pseudo-elements
-    &::placeholder {
-        color: $color-white;
-
-        opacity: 0.5;
-    }
+    // TODO: add code
 
     // Nested selectors
     // TODO: add code
@@ -31,13 +27,23 @@
     // TODO: add code
 
     // BEM modifiers
-    &_theme_alt {
+    &_theme_light {
         color: rgba($color-white, 0.85);
 
         border-color: rgba($color-white, 0.4);
 
+        &::placeholder {
+            color: $color-white;
+    
+            opacity: 0.5;
+        }
+
         &:focus {
             border-color: rgba($color-white, 0.85);
         }
+    }
+
+    .has-error > & {
+        border-color: $color-error;
     }
 }

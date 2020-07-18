@@ -107,3 +107,62 @@ langMenu:
         url: "javascript:void(0);"
         lang: "fr"
         title: "Français (FR)"
+
+# Footer block props
+footer:
+    logo:
+        img: "img/logo-alt.svg"
+        alt: "Express - A Logistics Company"
+    
+    # Text in the "About Our Company" section
+    about: >-
+        Lorem ipsum dolor sit amet, consectetuer piscing elit. Aenean commodo
+        ligula eget dolor. Aeneanlo massa. Cum sociis natoque penatibus et.
+
+    # Useful Links
+    menu:
+        -
+            url: "javascript:void(0);"
+            title: "Ground Shipping"
+        -
+            url: "javascript:void(0);"
+            title: "Logistics Services"
+        -
+            url: "javascript:void(0);"
+            title: "Warehousing"
+        -
+            url: "javascript:void(0);"
+            title: "Air Delivery"
+        -
+            url: "javascript:void(0);"
+            title: "Sea Delivey"
+        -
+            url: "javascript:void(0);"
+            title: "Storage"
+        -
+            url: "javascript:void(0);"
+            title: "About Us"
+        -
+            url: "javascript:void(0);"
+            title: "Contact Us"
+        -
+            url: "javascript:void(0);"
+            title: "History"
+        -
+            url: "javascript:void(0);"
+            title: "Timeline"
+        -
+            url: "javascript:void(0);"
+            title: "Contact Us"
+        -
+            url: "javascript:void(0);"
+            title: "FAQs"
+
+    # Text in the "Newsletter Subscribe" section
+    subscribe: >-
+        Vivamus consequat, felis at aliquam elementum, massa sem dignissim
+        elit, sit amet cursus massa tortor eget ante.
+
+    copy: >-
+        &copy; 2015 Logistic - Sunrise Theme. All Rights Reserved <br />
+        HTML Template by Andrey
