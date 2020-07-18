@@ -22,6 +22,13 @@
     &__top-inner {
         padding: 2.75em 0;
 
+        background: {
+            image: url(../img/footer-bg.svg);
+            position: center;
+            repeat: no-repeat;
+            size: cover;
+        }
+
         @media screen and (min-width: 40em) {
             display: flex;
             flex-wrap: wrap;
