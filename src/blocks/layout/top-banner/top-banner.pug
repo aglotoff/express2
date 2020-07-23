@@ -13,8 +13,8 @@ mixin top-banner(props)
     )&attributes(attributes)
         .top-banner__inner
             .top-banner__content
-                h1.top-banner__title= props.title
-                p.top-banner__text= props.text
+                h1.title.title_size_xl.title_center.title_theme_light= props.title
+                p.rich-text.top-banner__text !{props.text}
 
             a(
                 href="#header-top"

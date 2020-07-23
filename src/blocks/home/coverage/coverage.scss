@@ -1,0 +1,69 @@
+/**
+ * Styles for the coverage block.
+ */
+.coverage {
+    // Selector styles
+    padding: 4em 0 4.25em;
+
+    // @media queries
+    @media screen and (min-width: 30em) {
+        padding-bottom: 5.25em;
+        padding-top: 5em;
+    }
+
+    @media screen and (min-width: 48em) {
+        padding-bottom: 6.25em;
+        padding-top: 6em;
+    }
+
+    @media screen and (min-width: 60em) {
+        padding-bottom: 7.5em;
+        padding-top: 7em;
+    }
+
+    // Pseudo-classes and pseudo-elements
+    // TODO: add code
+
+    // Nested selectors
+    // TODO: add code
+
+    // BEM elements
+    &__text {
+        margin: 1.75em auto 0;
+        max-width: 36em;
+
+        text-align: center;
+    }
+
+    &__map {
+        position: relative;
+
+        margin: 2.75em auto 0;
+        padding-bottom: 50%;
+
+        background: {
+            image: url(../img/coverage.svg);
+            position: center;
+            repeat: no-repeat;
+            size: contain;
+        };
+
+        @media screen and (min-width: 60em) {
+            margin-top: 4em;
+            max-width: 70em;
+        }
+    }
+
+    &__popup {
+        position: absolute;
+
+        display: none;
+
+        @media screen and (min-width: 48em) {
+            display: block;
+        }
+    }
+
+    // BEM modifiers
+    // TODO: add code
+}

@@ -1,0 +1,28 @@
+//-
+    name: image-popup
+    description: Markup for the image popup block.
+    arguments:
+        - {object} props - Block properties.
+        - {string} props.img - Path to the image file (without extension).
+        - {string} props.alt - Alternate text.
+        - {string} props.href - Optional link to make the popup clickable.
+
+mixin image-popup(props = {})
+    - const tag = props.link ? 'a' : 'div';
+    .image-popup&attributes(attributes)
+        #{tag}(href=props.link).image-popup__container
+            .image-popup__inner
+                picture
+                    source(
+                        srcset=`${props.img}.webp`
+                        type="image/webp"
+                    )
+                    source(
+                        srcset=`${props.img}.jpg`
+                        type="image/jpeg"
+                    )
+                    img(
+                        src=`${props.img}.jpg`
+                        alt=props.alt
+                        title=props.alt
+                    ).image-popup__img

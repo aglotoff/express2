@@ -103,12 +103,6 @@
 
     &__text {
         color: rgba($color-white, 0.4);
-        font-size: 0.875rem;
-        line-height: 1.875;
-
-        @media screen and (min-width: 30em) {
-            font-size: 1rem;
-        }
     }
 
     &__menu {
@@ -117,7 +111,7 @@
         columns: 2;
         column-gap: 2em;
 
-        @media screen and (min-width: 30em) {
+        @media screen and (min-width: 48em) {
             font-size: 1rem;
         }
 

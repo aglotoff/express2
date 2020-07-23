@@ -26,7 +26,7 @@ mixin footer(props = {})
                             isHeading: false,
                         }).footer__logo
 
-                        .footer__text !{props.about}
+                        .rich-text.footer__text !{props.about}
 
                     section.footer__section.footer__section_wide
                         h2.footer__section-title Useful Links
@@ -39,7 +39,7 @@ mixin footer(props = {})
                     section.footer__section
                         h2.footer__section-title Newsletter Subscribe
 
-                        .footer__text !{props.subscribe}
+                        .rich-text.footer__text !{props.subscribe}
 
                         form(
                             action="#",

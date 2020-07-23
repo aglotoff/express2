@@ -9,3 +9,30 @@ header:
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
             commodo ligula eget dolor. Aenean massa. Cum sociis natoque
         bg: "img/top-banner-bg.jpg"
+
+# Global Coverage Section
+coverage:
+    title: "Global Coverage"
+    text: >-
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+        ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et
+
+    popups:
+        -
+            left: "27%"
+            top: "35%"
+            link: "javascript:void(0);"
+            img: "img/coverage/plane"
+            alt: "Delivery by plane"
+        -
+            left: "50%"
+            top: "92%"
+            link: "javascript:void(0);"
+            img: "img/coverage/truck"
+            alt: "Delivery by truck"
+        -
+            left: "90%"
+            top: "63%"
+            link: "javascript:void(0);"
+            img: "img/coverage/sea"
+            alt: "Delivery by sea"

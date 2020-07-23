@@ -31,8 +31,8 @@ const SELECTOR = {
     NAVBAR_TOGGLE: `.${BLOCK_NAME}__navbar-toggle`,
 };
 
-const RESIZE_INTERVAL = 200; // Resize event debounce interval, in ms
-const SCROLL_INTERVAL = 200; // Scroll event throttling interval, in ms
+const RESIZE_INTERVAL = 100; // Resize event debounce interval, in ms
+const SCROLL_INTERVAL = 100; // Scroll event throttling interval, in ms
 const DESKTOP_MEDIA = '(min-width: 62em)'; // Desktop breakpoint
 
 // DOM elements map

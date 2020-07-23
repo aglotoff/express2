@@ -51,41 +51,9 @@
         }
     }
 
-    &__title {
-        font-family: $font-family-title;
-        font-size: 1.75rem;
-        font-weight: $font-weight-extra-bold;
-        text-transform: uppercase;
-
-        @include breakpoint-up(sm) {
-            font-size: 2rem;
-        }
-
-        @include breakpoint-up(md) {
-            font-size: 2.5rem;
-        }
-
-        @include breakpoint-up(lg) {
-            font-size: 3rem;
-        }
-
-        &:after {
-            content: "";
-
-            display: block;
-            height: 0.0625em;
-            margin: 0.35em auto 0;
-            width: 2.5em;
-
-            background: $color-secondary;
-        }
-    }
-
     &__text {
-        margin: 1.5em auto 0;
+        margin: 2.25em auto 0;
         max-width: 36em;
-
-        line-height: 1.875;
 
         @include breakpoint-up(md) {
             margin-top: 3em;

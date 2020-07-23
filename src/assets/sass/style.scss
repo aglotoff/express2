@@ -13,8 +13,11 @@
 // Common block imports
 @import "../../blocks/common/btn/btn";
 @import "../../blocks/common/form/form";
+@import "../../blocks/common/image-popup/image-popup";
 @import "../../blocks/common/input/input";
+@import "../../blocks/common/rich-text/rich-text";
 @import "../../blocks/common/social/social";
+@import "../../blocks/common/title/title";
 
 // Layout block imports
 @import "../../blocks/layout/footer/footer";
@@ -28,3 +31,6 @@
 @import "../../blocks/layout/skip-link/skip-link";
 @import "../../blocks/layout/top-banner/top-banner";
 @import "../../blocks/layout/top-contacts/top-contacts";
+
+// Home page block imports
+@import "../../blocks/home/coverage/coverage";

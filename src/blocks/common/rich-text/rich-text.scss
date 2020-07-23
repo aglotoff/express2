@@ -1,0 +1,25 @@
+/**
+ * Styles for the rich text block.
+ */
+.rich-text {
+    // Selector styles
+    font-size: 0.875rem;
+    line-height: 1.875;
+
+    // @media queries
+    @media screen and (min-width: 48em) {
+        font-size: 1rem;
+    }
+
+    // Pseudo-classes and pseudo-elements
+    // TODO: add code
+
+    // Nested selectors
+    // TODO: add code
+
+    // BEM elements
+    // TODO: add code
+
+    // BEM modifiers
+    // TODO: add code
+}

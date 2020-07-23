@@ -1,0 +1,26 @@
+//-
+    name: coverage
+    description: Markup for the coverage section.
+    arguments:
+        - {object} props - Block properties.
+        - {string} props.title - Section title.
+        - {string} props.text - Section lead text.
+
+mixin coverage(props = {})
+    section.coverage&attributes(attributes)
+        .page__inner
+            h2.title.title_size_lg.title_center.title_theme_default= props.title
+            .rich-text.coverage__text !{props.text}
+
+            ul.coverage__map
+                each popup in props.popups
+                    li.coverage__popup(style={
+                        left: popup.left,
+                        top: popup.top,
+                    })
+                        +image-popup({
+                            img: popup.img,
+                            alt: popup.alt,
+                            link: popup.link,
+                        })
+                        

@@ -1,6 +1,8 @@
 extends ../layouts/base.pug
 
-//- TODO: include page-specific block templates
+include ../blocks/common/image-popup/image-popup.pug
+include ../blocks/home/coverage/coverage.pug
 
 block page
-    main(style="min-height: 200vh;")
+    main
+        +coverage(data.coverage)
